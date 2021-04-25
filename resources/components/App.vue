@@ -6,11 +6,10 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  // type inference enabled
-  name: 'app'
 })
 </script>
 
 <style lang="scss" scoped>
 
 </style>
+
