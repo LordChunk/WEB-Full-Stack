@@ -13,10 +13,10 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
         <!-- Styles -->
-        <link rel="stylesheet" href="/css/app.css">
+        <!-- <link rel="stylesheet" href="/css/app.css"> -->
 
-        <!-- JavaScript -->
-        <script defer src="/js/app.js"></script>
+        <!-- JavaScript            These double fix Hot Module Reloading -->
+        <script defer src="{{ mix('//js/app.js') }}"></script>
     </head>
     <body>
         <div id="vue-app"></div>

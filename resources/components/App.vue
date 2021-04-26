@@ -1,5 +1,5 @@
 <template>
-    <h1>hello world</h1>
+    <h1>Hello world</h1>
 </template>
 
 <script lang="ts">
@@ -10,6 +10,8 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-
+* {
+    background: red;
+}
 </style>
 
