@@ -15,7 +15,7 @@
         <!-- Styles -->
         <!-- <link rel="stylesheet" href="/css/app.css"> -->
 
-        <!-- JavaScript            These double fix Hot Module Reloading -->
+        <!-- JavaScript            These double /'s fix Hot Module Reloading -->
         <script defer src="{{ mix('//js/app.js') }}"></script>
     </head>
     <body>

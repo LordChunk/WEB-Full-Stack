@@ -1,5 +1,6 @@
 <template>
-    <h1>Hello world</h1>
+    <h1>Welkom bij de Gouden Draak!</h1>
+    <p>Op deze website kunt u uw bestellingen plaatsen en het menu inzien.</p>
 </template>
 
 <script lang="ts">
@@ -10,8 +11,6 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-* {
-    background: red;
-}
+
 </style>
 
