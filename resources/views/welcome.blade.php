@@ -25,12 +25,12 @@
 <body>
     <div id="vue-app">
         <v-app>
-            <v-navigation-drawer app>
+            <v-navigation-drawer app v-model="drawer">
                 <navigation :nav-items="['hello', 'world']"></navigation>
             </v-navigation-drawer>
 
             <v-app-bar app>
-                <v-app-bar-nav-icon app @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+                <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
             </v-app-bar>
 
             <!-- Sizes your content based upon application components -->

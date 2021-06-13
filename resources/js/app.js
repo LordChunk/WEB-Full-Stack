@@ -1,5 +1,5 @@
 import Vue from "vue";
-import Nav from  "../components/Nav.vue"
+import Nav from "../components/Nav.vue"
 import vuetify from './plugins/vuetify'
 
 require('./bootstrap.js')
@@ -11,5 +11,15 @@ const app = new Vue({
     el: '#vue-app',
     components: {
         Nav
-    }
+    },
+    data: () => ({
+        drawer: false,
+        group: null,
+    }),
+
+    watch: {
+        group() {
+            this.drawer = false
+        },
+    },
 })
