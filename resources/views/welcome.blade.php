@@ -16,9 +16,15 @@
         <!-- <link rel="stylesheet" href="/css/app.css"> -->
 
         <!-- JavaScript            These double /'s fix Hot Module Reloading -->
-        <script defer src="{{ mix('//js/app.js') }}"></script>
+        <script defer src="{{ mix('js/app.js') }}"></script>
     </head>
     <body>
-        <div id="vue-app"></div>
+        <div id="vue-app">
+            <nav>
+                Vue nav
+            </nav>
+            <h1>Hello World</h1>
+            <navigation></navigation>
+        </div>
     </body>
 </html>
