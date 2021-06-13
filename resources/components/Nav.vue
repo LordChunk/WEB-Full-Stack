@@ -1,6 +1,20 @@
+<template>
+    <nav>
+        <div v-for="navItem in navItems" :key="navItem.key">
+            <h2>Item: {{navItem}}</h2>
+        </div>
+    </nav>
+</template>
+
 <script>
 export default {
     name: 'navigation',
+    props: {
+        navItems: {
+            type: Array,
+            required: true,
+        }
+    }
 }
 </script>
 
@@ -9,7 +23,3 @@ export default {
         color: red;
     }
 </style>
-
-<template>
-    <h2>This is navigation</h2>
-</template>

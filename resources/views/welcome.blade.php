@@ -20,11 +20,7 @@
     </head>
     <body>
         <div id="vue-app">
-            <nav>
-                Vue nav
-            </nav>
-            <h1>Hello World</h1>
-            <navigation></navigation>
+            <navigation :nav-items="['hello', 'world']"></navigation>
         </div>
     </body>
 </html>
