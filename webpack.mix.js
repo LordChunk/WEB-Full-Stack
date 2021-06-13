@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+require('vuetifyjs-mix-extension')
 
 /*
  |--------------------------------------------------------------------------
@@ -11,5 +12,5 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js').vue({version: 2});
+mix.js('resources/js/app.js', 'public/js').vuetify().vue({version: 2});
 mix.sass('resources/scss/app.scss', 'public/css');
