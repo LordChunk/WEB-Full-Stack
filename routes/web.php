@@ -17,6 +17,9 @@ Route::get('/hello-world', function () {
     return 'Hello world';
 });
 
-Route::get('/{any}', function () {
+Route::get('/', function () {
+    return view('vue');
+});
+Route::get('{any}', function () {
     return view('vue');
 });
