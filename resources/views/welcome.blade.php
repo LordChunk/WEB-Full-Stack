@@ -26,7 +26,7 @@
     <div id="vue-app">
         <v-app>
             <v-navigation-drawer app v-model="drawer">
-                <navigation :nav-items="['hello', 'world']"></navigation>
+                <navigation :nav-items="{{\App\Models\NavigationItem::all()}}"></navigation>
             </v-navigation-drawer>
 
             <v-app-bar app>

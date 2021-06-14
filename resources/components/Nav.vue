@@ -1,25 +1,24 @@
 <template>
-    <nav>
-        <div v-for="navItem in navItems" :key="navItem.key">
-            <h2>Item: {{navItem}}</h2>
-        </div>
-    </nav>
+  <nav v-list dense nav>
+    <div v-for="navItem in navItems" :key="navItem.id">
+      <v-list-item link :href="navItem.url">
+        {{ navItem.name }}
+      </v-list-item>
+    </div>
+  </nav>
 </template>
 
 <script>
 export default {
-    name: 'navigation',
-    props: {
-        navItems: {
-            type: Array,
-            required: true,
-        }
-    }
-}
+  name: "navigation",
+  props: {
+    navItems: {
+      type: Array,
+      required: true,
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-    * {
-        color: red;
-    }
 </style>
