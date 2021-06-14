@@ -17,9 +17,18 @@ Route::get('/hello-world', function () {
     return 'Hello world';
 });
 
+
+Route::group([ 'namespace'=> '\App\Http\Controllers' ], function () {
+    Route::resource('dishes', 'DishController');
+});
+
+require __DIR__ . '/api.php';
+
 Route::get('/', function () {
     return view('vue');
 });
 Route::get('{any}', function () {
     return view('vue');
 });
+
+
