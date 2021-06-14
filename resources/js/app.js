@@ -1,19 +1,21 @@
 import Vue from "vue";
 
 // Components
-import Nav from "../components/Nav.vue"
-import Home from "../components/Home.vue"
-import Login from "../components/Login.vue"
+import Nav from "../components/Nav.vue";
+import Home from "../components/Home.vue";
+import Login from "../components/Login.vue";
+import Menu from "../components/Menu.vue";
 
 // Plugins
-import vuetify from './plugins/vuetify'
-import router from './plugins/router'
+import vuetify from './plugins/vuetify';
+import router from './plugins/router';
 
 require('./bootstrap.js')
 
 Vue.component('navigation', Nav);
-Vue.component('home', Home);
-Vue.component('login', Login);
+// Vue.component('home', Home);
+// Vue.component('login', Login);
+// Vue.component('login', Menu)
 
 router.addRoutes([
     {
@@ -23,6 +25,10 @@ router.addRoutes([
     {
         path: '/login',
         component: Login,
+    },
+    {
+        path: '/menu',
+        component: Menu,
     }
 ]);
 

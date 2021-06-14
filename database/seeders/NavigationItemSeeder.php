@@ -20,6 +20,10 @@ class NavigationItemSeeder extends Seeder
             'url'=>'/',
         ]);
         NavigationItem::create([
+            'name'=>'Menu',
+            'url'=>'/menu',
+        ]);
+        NavigationItem::create([
             'name'=>'Login',
             'url'=>'/login',
         ]);
