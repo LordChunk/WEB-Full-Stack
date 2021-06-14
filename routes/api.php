@@ -20,5 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::group([ 'namespace'=> '\App\Http\Controllers\Api', 'prefix' => '/api',], function () {
-  Route::apiResource('/dishes', 'DishController');
+  Route::apiResource('/menu', 'MenuController');
 });

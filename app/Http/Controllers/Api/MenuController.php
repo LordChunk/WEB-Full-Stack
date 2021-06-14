@@ -7,7 +7,7 @@ use App\Models\Dish;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class DishController extends Controller
+class MenuController extends Controller
 {
     /**
      * Display a listing of the resource.
