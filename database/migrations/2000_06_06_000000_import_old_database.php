@@ -28,33 +28,36 @@ class ImportOldDatabase extends Migration
         // Drop tables with unused data
         Schema::dropIfExists('gebruiker');
 
+        // Shuffle names (this can't be done earlier as some table names are set in the actual .sql file)
         Schema::rename('menu', 'old_menu');
         Schema::rename('new_menu', 'menu');
 
+        // Migrate over old menu data
+        DB::table('old_menu')->eachById(function ($oldDish) {
+            // Add dish types to db
+            $dishType = DishType::firstOrCreate(['name' => $oldDish->soortgerecht]);
 
-
-        DB::table('old_menu')->eachById(function ($dish) {
-            $dishType = DishType::firstOrCreate(['name' => $dish->soortgerecht]);
-
+            // Add descriptions
             $dishDescription = null;
-            if (strlen($dish->beschrijving) > 0) {
-                $dishDescription = DishDescription::create(['description' => $dish->beschrijving]);
+            if (strlen($oldDish->beschrijving) > 0) {
+                $dishDescription = DishDescription::create(['description' => $oldDish->beschrijving]);
             }
 
+            // Create actual dish entry
             $newDish = new Dish;
 
-            $newDish->menu_indicator = $dish->menunummer . $dish->menu_toevoeging;
-            $newDish->name = $dish->naam;
-            $newDish->price = $dish->price;
+            $newDish->menu_indicator = $oldDish->menunummer . $oldDish->menu_toevoeging;
+            $newDish->name = $oldDish->naam;
+            $newDish->price = $oldDish->price;
 
-            $newDish->save();
-
+            // Link foreign elements to dish
             $newDish->type()->associate($dishType);
             $newDish->description()->associate($dishDescription);
 
             $newDish->save();
         });
 
+        // Drop old menu data
         Schema::dropIfExists('old_menu');
     }
 
