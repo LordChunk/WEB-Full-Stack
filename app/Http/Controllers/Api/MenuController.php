@@ -38,7 +38,7 @@ class MenuController extends Controller
 
         $returnValue->menu_indicator = $dish->menu_indicator;
         $returnValue->name = $dish->name;
-        $returnValue->price = $dish->price;
+        $returnValue->price = number_format($dish->price, 2, ',');
 
         if(isset($dish->description)) {
             $returnValue->description = $dish->description->description;
