@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\MenuController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,5 +21,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::group([ 'namespace'=> '\App\Http\Controllers\Api', 'prefix' => '/api',], function () {
-  Route::apiResource('/menu', 'MenuController');
+  Route::get('/menu', [MenuController::class, 'index']);
+  Route::get('/menu/group-by-type', [MenuController::class, 'groupByType']);
 });
