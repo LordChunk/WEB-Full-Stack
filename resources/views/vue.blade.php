@@ -40,6 +40,7 @@
                 <v-container fluid>
 
                     <!-- If using vue-router -->
+                    <router-view></router-view>
                 </v-container>
             </v-main>
 

@@ -1,8 +1,8 @@
 <template>
   <nav>
-    <v-list dense nav>
+    <v-list nav>
         <div v-for="navItem in navItems" :key="navItem.id">
-            <v-list-item link :href="navItem.url">
+            <v-list-item router-link :to="navItem.url">
                 {{ navItem.name }}
             </v-list-item>
         </div>
@@ -12,7 +12,6 @@
 
 <script>
 export default {
-  name: "navigation",
   props: {
     navItems: {
       type: Array,
