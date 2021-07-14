@@ -1,25 +1,28 @@
 <template>
-  <div class="container">
-    <header>
-      <div class="top-header">
-        <div>
-          <!-- Nav logo left -->
-          <header-logo />
+  <div class="layout-wrapper">
+    <div class="spacer"></div>
+    <div class="container">
+      <header>
+        <div class="top-header">
+          <div>
+            <!-- Nav logo left -->
+            <header-logo />
+          </div>
+          <!-- Banner moving right to left with ad -->
+          <header-marquee>
+            <h3>Zieke ads hier man kopen die handel</h3>
+          </header-marquee>
+          <div>
+            <!-- Nav logo right -->
+            <header-logo class="hidden-mobile" />
+          </div>
         </div>
-        <!-- Banner moving right to left with ad -->
-        <header-marquee>
-          <h3>Zieke ads hier man kopen die handel</h3>
-        </header-marquee>
-        <div>
-          <!-- Nav logo right -->
-          <header-logo class="hidden-mobile" />
-        </div>
-      </div>
 
-      <nav>
-        <nav-bar></nav-bar>
-      </nav>
-    </header>
+        <nav>
+          <nav-bar></nav-bar>
+        </nav>
+      </header>
+    </div>
   </div>
 </template>
 
@@ -40,7 +43,6 @@ export default {
 .top-header {
   display: flex;
   justify-content: space-between;
-  margin-top: 1em;
 }
 header {
   color: yellow;
@@ -48,12 +50,15 @@ header {
 nav {
   margin-top: 5em;
 }
-</style>
 
-<style lang="scss">
-body {
+.layout-wrapper {
+  width: 100vw;
+  height: 100vh;
   background: darkred;
   font-family: "Times New Roman", Times, serif;
+}
+.spacer {
+  height: 1em;
 }
 .container {
   background: red;
