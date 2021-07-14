@@ -62,28 +62,14 @@ export default {
     // Get version from package.json
     this.version = packageInfo.version;
   },
-  created() {
-      this.fetchData();
+  async created() {
+      await this.fetchData();
   },
   methods: {
-    fetchData() {
+    async fetchData() {
       // Get all contributers from github repo
-      axios
-        .get(
-          "https://api.github.com/repos/LordChunk/WEB-Full-Stack/contributors"
-        )
-        .then((response) => {
-          // Format the response
-          let formatted = response.data.map((contributor) => {
-            return {
-              id: contributor.id,
-              login: contributor.login,
-              html_url: contributor.html_url,
-              avatar_url: contributor.avatar_url,
-            };
-          });
-          this.contributors = formatted;
-        });
+      const response = await axios.get("https://api.github.com/repos/LordChunk/WEB-Full-Stack/contributors");
+      this.contributors = response.data;
     },
   },
 };
