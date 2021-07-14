@@ -14,6 +14,6 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::group([ 'namespace'=> '\App\Http\Controllers' ], function () {
+Route::group([ 'namespace' => '\App\Http\Controllers' ], function () {
     Route::get('/', [HomeController::class, 'index']);
 });
