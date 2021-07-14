@@ -3,25 +3,27 @@
     <header>
       <div>
         <!-- Nav logo left -->
-        <nav-logo />
+        <header-logo />
       </div>
-      <div class="marquee">
-        <!-- Banner moving right to left with ad -->
+      <!-- Banner moving right to left with ad -->
+      <header-marquee>
         <h3>Zieke ads hier man kopen die handel</h3>
-      </div>
+      </header-marquee>
       <div>
         <!-- Nav logo right -->
-        <nav-logo class="hidden-mobile" />
+        <header-logo class="hidden-mobile" />
       </div>
     </header>
   </div>
 </template>
 
 <script>
-import NavLogo from "@/Shared/NavLogo.vue";
+import HeaderLogo from "@/Shared/HeaderLogo.vue";
+import HeaderMarquee from "@/Shared/Marquee.vue";
 export default {
   components: {
-    NavLogo,
+    HeaderLogo,
+    HeaderMarquee,
   },
 };
 </script>
@@ -37,32 +39,13 @@ body {
 header {
   display: flex;
   justify-content: space-between;
+  margin-top: 1em;
+  color: yellow;
 }
 
 .hidden-mobile {
-    @media (max-width: 767px) {
-        display: none !important;
-    }
-}
-
-// Marquee styling
-.marquee {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-
-  > * {
-    animation: scroll-left 10s linear infinite;
-    position: absolute;
-    width: max-content;
-  }
-}
-@keyframes scroll-left {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
+  @media (max-width: 767px) {
+    display: none !important;
   }
 }
 </style>
