@@ -2,6 +2,7 @@
     "version": "0.1",
     "private": true,
     "scripts": {
+        "serve": "yarn run hot & php artisan serve",
         "dev": "npm run development",
         "development": "mix",
         "watch": "mix watch",
