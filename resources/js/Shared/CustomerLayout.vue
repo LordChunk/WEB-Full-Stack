@@ -22,6 +22,9 @@
           <nav-bar></nav-bar>
         </nav>
       </header>
+      <main>
+        <slot></slot>
+      </main>
     </div>
   </div>
 </template>
@@ -52,8 +55,8 @@ nav {
 }
 
 .layout-wrapper {
-  width: 100vw;
-  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
   background: darkred;
   font-family: "Times New Roman", Times, serif;
 }

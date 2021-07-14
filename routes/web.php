@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DishController;
 use App\Http\Controllers\HomeController;
 
 /*
@@ -16,5 +17,6 @@ use App\Http\Controllers\HomeController;
 
 Route::group([ 'namespace' => '\App\Http\Controllers' ], function () {
     Route::get('/', [HomeController::class, 'home']);
+    Route::get('/menu', [DishController::class, 'ShowMenu']);
     Route::get('/login', [HomeController::class, 'login']);
 });
