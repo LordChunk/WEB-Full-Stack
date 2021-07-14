@@ -10,18 +10,19 @@
 export default {};
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 div {
-    font-family: 'gouden_draak_header';
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
+  font-family: "gouden_draak_header";
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 15em;
 }
 img {
-    width: 50px;
-    height: 50px;
+  width: 50px;
+  height: 50px;
 }
 .mirror-horizontal {
-    transform: scaleX(-1);
+  transform: scaleX(-1);
 }
 </style>
