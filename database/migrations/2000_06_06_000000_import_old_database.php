@@ -40,6 +40,8 @@ class ImportOldDatabase extends Migration
             // Add descriptions
             $dishDescription = null;
             if (strlen($oldDish->beschrijving) > 0) {
+                // Replace all <br> with spaces
+                $oldDish->beschrijving = $this->sanitiseText($oldDish->beschrijving);
                 $dishDescription = DishDescription::create(['description' => $oldDish->beschrijving]);
             }
 
@@ -47,7 +49,9 @@ class ImportOldDatabase extends Migration
             $newDish = new Dish;
 
             $newDish->menu_indicator = $oldDish->menunummer . $oldDish->menu_toevoeging;
-            $newDish->name = $oldDish->naam;
+
+            // Replace all special HTML notations with their actual values
+            $newDish->name = $this->sanitiseText($oldDish->naam);
             $newDish->price = $oldDish->price;
 
             // Link foreign elements to dish
@@ -59,6 +63,13 @@ class ImportOldDatabase extends Migration
 
         // Drop old menu data
         Schema::dropIfExists('old_menu');
+    }
+
+    private function sanitiseText(string $text) {
+        $text = str_replace("&eacute;", "é", $text);
+        $text = str_replace('<br>', ' ', $text);
+
+        return $text;
     }
 
     /**
