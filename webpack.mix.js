@@ -13,7 +13,7 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
     .vue({ version: 2 })
-    .alias({ '@': 'resources/js' })
-    .sass('resources/css/app.scss', 'public/css', [
-        //
-    ]);
+    .alias(
+        { '@': 'resources/js' },
+    )
+    .sass('resources/css/app.scss', 'public/css');

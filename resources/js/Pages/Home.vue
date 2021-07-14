@@ -1,9 +1,11 @@
 <template>
-  <h1>Hello world</h1>
+    <div>
+        <h1>Hello there home</h1>
+    </div>
 </template>
 
 <script>
-import Layout from '@/Shared/Layout'
+import Layout from "@/Shared/CustomerLayout.vue";
 export default {
     layout: Layout,
 }

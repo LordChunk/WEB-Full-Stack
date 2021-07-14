@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import NavBar from '@/Shared/NavBar';
-import AppFooter from '@/Shared/AppFooter';
+import NavBar from '@/Shared/NavBar.vue';
+import AppFooter from '@/Shared/AppFooter.vue';
 
 export default {
     components: {

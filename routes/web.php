@@ -15,5 +15,6 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::group([ 'namespace' => '\App\Http\Controllers' ], function () {
-    Route::get('/', [HomeController::class, 'index']);
+    Route::get('/', [HomeController::class, 'home']);
+    Route::get('/login', [HomeController::class, 'login']);
 });
