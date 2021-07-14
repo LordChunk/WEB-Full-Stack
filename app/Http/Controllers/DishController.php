@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Dish;
 use App\Models\DishType;
 use Inertia\Inertia;
 
@@ -16,8 +15,6 @@ class DishController extends Controller
    */
   public function ShowMenu()
   {
-    $dishes = Dish::with('type', 'description')->get()->map([$this, 'mapDish']);
-
     return Inertia::render('Menu', ['dishTypes' => $this->groupByType()]);
   }
 
