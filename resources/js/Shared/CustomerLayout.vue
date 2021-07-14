@@ -1,18 +1,24 @@
 <template>
   <div class="container">
     <header>
-      <div>
-        <!-- Nav logo left -->
-        <header-logo />
+      <div class="top-header">
+        <div>
+          <!-- Nav logo left -->
+          <header-logo />
+        </div>
+        <!-- Banner moving right to left with ad -->
+        <header-marquee>
+          <h3>Zieke ads hier man kopen die handel</h3>
+        </header-marquee>
+        <div>
+          <!-- Nav logo right -->
+          <header-logo class="hidden-mobile" />
+        </div>
       </div>
-      <!-- Banner moving right to left with ad -->
-      <header-marquee>
-        <h3>Zieke ads hier man kopen die handel</h3>
-      </header-marquee>
-      <div>
-        <!-- Nav logo right -->
-        <header-logo class="hidden-mobile" />
-      </div>
+
+      <nav>
+        <nav-bar></nav-bar>
+      </nav>
     </header>
   </div>
 </template>
@@ -20,27 +26,41 @@
 <script>
 import HeaderLogo from "@/Shared/HeaderLogo.vue";
 import HeaderMarquee from "@/Shared/Marquee.vue";
+import NavBar from "@/Shared/CustomerNavBar.vue";
 export default {
   components: {
     HeaderLogo,
     HeaderMarquee,
+    NavBar,
   },
 };
 </script>
 
+<style lang="scss" scoped>
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1em;
+}
+header {
+  color: yellow;
+}
+nav {
+  margin-top: 5em;
+}
+</style>
+
 <style lang="scss">
 body {
   background: darkred;
+  font-family: "Times New Roman", Times, serif;
 }
 .container {
   background: red;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1em;
-  color: yellow;
+.mirror-horizontal {
+  transform: scaleX(-1);
 }
 
 .hidden-mobile {

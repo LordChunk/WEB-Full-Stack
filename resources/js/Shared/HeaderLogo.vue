@@ -22,7 +22,4 @@ img {
   width: 50px;
   height: 50px;
 }
-.mirror-horizontal {
-  transform: scaleX(-1);
-}
 </style>
