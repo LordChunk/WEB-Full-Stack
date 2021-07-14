@@ -63,14 +63,4 @@ nav {
 .container {
   background: red;
 }
-
-.mirror-horizontal {
-  transform: scaleX(-1);
-}
-
-.hidden-mobile {
-  @media (max-width: 767px) {
-    display: none !important;
-  }
-}
 </style>
