@@ -17,9 +17,9 @@
       <!-- Generate navigation from navItems array -->
       <ul>
         <li v-for="navItem in navItems" :key="navItem.id">
-          <a :href="navItem.url" :active="navItem.active">
+          <inertia-link :href="navItem.url" :active="navItem.active">
             {{ navItem.name }}
-          </a>
+          </inertia-link>
         </li>
       </ul>
     </div>

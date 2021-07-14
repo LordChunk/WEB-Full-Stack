@@ -6,17 +6,23 @@
       <b-nav
         v-for="navItem in navItems"
         :key="navItem.id"
-        :active="navItem.active"
       >
-        <b-nav-item :href="navItem.url" :active="navItem.active">
+        <b-nav-item>
           <!-- <b-icon name="{{navItem.icon}}"></b-icon> -->
-          {{ navItem.name }}
+          <inertia-link :href="navItem.url">
+            {{ navItem.name }}
+          </inertia-link>
         </b-nav-item>
       </b-nav>
     </b-navbar>
   </nav>
 </template>
 
+<style scoped>
+a {
+  text-decoration: none;
+}
+</style>
 
 <script>
 export default {
