@@ -55,7 +55,6 @@ nav {
 }
 
 .layout-wrapper {
-  min-width: 100vw;
   min-height: 100vh;
   background: darkred;
   font-family: "Times New Roman", Times, serif;
