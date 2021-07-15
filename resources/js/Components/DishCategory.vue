@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <h2>{{ dishType.name }}</h2>
     <!-- Generate div for each dish -->
     <dish v-for="dish in dishType.dishes" :key="dish.id" :dish="dish">
@@ -21,5 +21,6 @@ export default {
 };
 </script>
 
-<style>
+<style scoped lang="scss">
+
 </style>

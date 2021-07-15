@@ -15,13 +15,14 @@
 
     <div class="nav-wrapper">
       <!-- Generate navigation from navItems array -->
-      <ul>
-        <li v-for="navItem in navItems" :key="navItem.id">
-          <inertia-link :href="navItem.url" :active="navItem.active">
-            {{ navItem.name }}
-          </inertia-link>
-        </li>
-      </ul>
+      <inertia-link
+        v-for="navItem in navItems"
+        :key="navItem.id"
+        :href="navItem.url"
+        :active="navItem.active"
+      >
+        {{ navItem.name }}
+      </inertia-link>
     </div>
   </div>
 </template>
@@ -47,34 +48,43 @@ img {
   display: flex;
   justify-content: center;
 }
+.wrapper {
+  // Center both header and navigation content horizontally
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  // Add space between navigation and main content
+  margin-bottom: 2em;
+}
 .nav-wrapper {
   display: flex;
-  justify-content: center;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  border: 1px solid white;
+  width: fit-content;
   padding: 2px;
+  border: 1px solid white;
 
-  li {
-    padding: 2px 1em;
+  a {
+    // Vertically center text for multiline text
+    display: flex;
+    align-items: center;
+
+    // Style text
+    color: white;
+    text-align: center;
+    font-size: 1.2em;
+    text-decoration: none;
+
+    // spacing between links
+    margin: 0 1px;
+    padding: 0 1em;
+
+    // Add background gradient
     background: rgb(0, 4, 255);
     background: linear-gradient(
       0deg,
       rgba(0, 4, 255, 1) 0%,
       rgba(0, 251, 255, 1) 100%
     );
-    text-align: center;
-    font-size: 1.2em;
-    margin: 0 1px;
-
-    a {
-      text-decoration: none;
-      color: white;
-    }
   }
 }
 </style>
