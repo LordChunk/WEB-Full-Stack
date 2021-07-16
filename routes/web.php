@@ -16,7 +16,12 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::group([ 'namespace' => '\App\Http\Controllers' ], function () {
-    Route::get('/', [HomeController::class, 'home']);
-    Route::get('/menu', [DishController::class, 'ShowMenu']);
-    Route::get('/login', [HomeController::class, 'login']);
+    Route::get('/', [HomeController::class, 'home'])->name('customer.home');
+    Route::get('/menu', [DishController::class, 'ShowMenu'])->name('customer.menu');
 });
+
+// Route::get('/dashboard', function () {
+//     return Inertia::render('Dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+require __DIR__.'/auth.php';

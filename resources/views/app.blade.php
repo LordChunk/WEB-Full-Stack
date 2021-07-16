@@ -9,6 +9,7 @@
         <!-- Fonts -->
         <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
 
+        @routes
         <!-- JavaScript -->
         <script src="{{ mix('/js/app.js') }}" defer></script>
     </head>
