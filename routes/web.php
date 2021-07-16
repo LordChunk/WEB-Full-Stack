@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\Customer\CustomerController;
+use App\Http\Controllers\Employee\EmployeeController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DishController;
-use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,13 +15,13 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::group([ 'namespace' => '\App\Http\Controllers' ], function () {
-    Route::get('/', [HomeController::class, 'home'])->name('customer.home');
-    Route::get('/menu', [DishController::class, 'ShowMenu'])->name('customer.menu');
+Route::name('customer.')->group(function () {
+    Route::get('/', [CustomerController::class, 'home'])->name('home');
+    Route::get('/menu', [CustomerController::class, 'ShowMenu'])->name('menu');
 });
 
-// Route::get('/dashboard', function () {
-//     return Inertia::render('Dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+Route::name('employee.')->group(function () {
+    Route::get('/dashboard', [EmployeeController::class, 'index'])->name('dashboard');
+});
 
 require __DIR__.'/auth.php';

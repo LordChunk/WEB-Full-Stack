@@ -1,21 +1,26 @@
 <?php
+namespace App\Http\Controllers\Customer;
 
-namespace App\Http\Controllers;
-
-use App\Http\Controllers\Controller;
-use App\Models\DishType;
 use Inertia\Inertia;
+use App\Models\DishType;
+use App\Http\Controllers\Controller;
 
-class DishController extends Controller
+
+class CustomerController extends Controller
 {
-  /**
+  public function home()
+  {
+    return Inertia::render('Customer/Home');
+  }
+
+    /**
    * Display a listing of the resource.
    *
    * @return \Illuminate\Http\Response
    */
   public function ShowMenu()
   {
-    return Inertia::render('Menu', ['dishTypes' => $this->groupByType()]);
+    return Inertia::render('Customer/Menu', ['dishTypes' => $this->groupByType()]);
   }
 
   public function groupByType()
