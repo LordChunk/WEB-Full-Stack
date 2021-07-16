@@ -27,9 +27,5 @@ class NavigationItemSeeder extends Seeder
             'name'=>'Login',
             'url'=>'/login',
         ]);
-        NavigationItem::create([
-            'name'=>'Hello World',
-            'url'=>'/hello-world',
-        ]);
     }
 }

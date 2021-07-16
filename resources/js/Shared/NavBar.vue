@@ -1,19 +1,28 @@
 <template>
   <nav>
-    <b-navbar variant="light" type="light">
-      <b-navbar-brand href="#">Gekkie Navbar</b-navbar-brand>
+    <b-navbar variant="light" type="light" toggleable="lg">
+      <b-navbar-brand>
+        <inertia-link :href="route('employee.dashboard')">
+        Kassa <img src="/images/portal.gif" alt="portal" v-b-tooltip.hover title="Portaal" />
+        </inertia-link>
+      </b-navbar-brand>
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <!-- Generate b-nav-item from navItems array -->
-      <b-nav
-        v-for="navItem in navItems"
-        :key="navItem.id"
-      >
-        <b-nav-item>
-          <!-- <b-icon name="{{navItem.icon}}"></b-icon> -->
-          <inertia-link :href="navItem.url">
-            {{ navItem.name }}
-          </inertia-link>
-        </b-nav-item>
-      </b-nav>
+      <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav>
+          <b-nav-item v-for="navItem in navItems" :key="navItem.id">
+            <inertia-link :href="navItem.url">
+              {{ navItem.name }}
+            </inertia-link>
+          </b-nav-item>
+        </b-navbar-nav>
+        <b-navbar-nav class="ml-auto">
+          <b-nav-item-dropdown text="User" href="#" right>
+            <b-dropdown-item><inertia-link href="#">Profiel</inertia-link></b-dropdown-item>
+            <b-dropdown-item><inertia-link :href="route('logout')" method="post">Uitloggen</inertia-link></b-dropdown-item>
+          </b-nav-item-dropdown>
+        </b-navbar-nav>
+      </b-collapse>
     </b-navbar>
   </nav>
 </template>
@@ -21,6 +30,16 @@
 <style scoped>
 a {
   text-decoration: none;
+}
+.navbar-brand a {
+  color: inherit;
+}
+.navbar {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+.navbar-brand img {
+  height: 2rem;
 }
 </style>
 
