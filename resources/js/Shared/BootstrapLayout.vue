@@ -1,7 +1,7 @@
 <template>
     <div class="d-flex flex-column vh-100">
         <nav-bar></nav-bar>
-        <main class="flex-shrink-0">
+        <main class="flex-shrink-0 container">
             <slot></slot>
         </main>
 

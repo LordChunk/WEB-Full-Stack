@@ -24,16 +24,14 @@
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
-        <b-navbar-nav class="ml-auto">
+        <b-navbar-nav class="ml-auto" v-if="user !== null">
           <b-nav-item-dropdown :text="user.email">
-            <b-dropdown-item
-              ><inertia-link href="#">Profiel</inertia-link></b-dropdown-item
-            >
-            <b-dropdown-item
-              ><inertia-link :href="route('logout')" method="post"
-                >Uitloggen</inertia-link
-              ></b-dropdown-item
-            >
+            <b-dropdown-item>
+              <inertia-link href="#">Profiel</inertia-link>
+            </b-dropdown-item>
+            <b-dropdown-item>
+              <inertia-link :href="route('logout')" method="post">Uitloggen</inertia-link>
+            </b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
       </b-collapse>
