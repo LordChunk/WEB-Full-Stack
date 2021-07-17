@@ -14,3 +14,8 @@
     display: none !important;
   }
 }
+
+// For whatever reason Bootstrap Vue doesn't have this class even though Bootstrap does 🤷
+.ml-auto {
+  margin-left: auto;
+}

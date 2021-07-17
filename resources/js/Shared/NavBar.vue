@@ -1,10 +1,16 @@
 <template>
   <nav>
     <b-navbar variant="light" type="light" toggleable="lg">
-      <b-navbar-brand>
-        <inertia-link :href="route('employee.dashboard')">
-        Kassa <img src="/images/portal.gif" alt="portal" v-b-tooltip.hover title="Portaal" />
-        </inertia-link>
+      <b-navbar-brand href="#">
+        <!-- <inertia-link :href="route('employee.dashboard')"> -->
+        Kassa
+        <img
+          src="/images/portal.gif"
+          alt="portal"
+          v-b-tooltip.hover
+          title="Portaal"
+        />
+        <!-- </inertia-link> -->
       </b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <!-- Generate b-nav-item from navItems array -->
@@ -16,10 +22,18 @@
             </inertia-link>
           </b-nav-item>
         </b-navbar-nav>
+
+        <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-          <b-nav-item-dropdown text="User" href="#" right>
-            <b-dropdown-item><inertia-link href="#">Profiel</inertia-link></b-dropdown-item>
-            <b-dropdown-item><inertia-link :href="route('logout')" method="post">Uitloggen</inertia-link></b-dropdown-item>
+          <b-nav-item-dropdown :text="user.email">
+            <b-dropdown-item
+              ><inertia-link href="#">Profiel</inertia-link></b-dropdown-item
+            >
+            <b-dropdown-item
+              ><inertia-link :href="route('logout')" method="post"
+                >Uitloggen</inertia-link
+              ></b-dropdown-item
+            >
           </b-nav-item-dropdown>
         </b-navbar-nav>
       </b-collapse>
@@ -27,11 +41,24 @@
   </nav>
 </template>
 
+<script>
+export default {
+  computed: {
+    navItems() {
+      return this.$page.props.nav.items;
+    },
+    user() {
+      return this.$page.props.auth.user;
+    },
+  },
+};
+</script>
+
 <style scoped>
 a {
   text-decoration: none;
 }
-.navbar-brand a {
+#nav-collapse a {
   color: inherit;
 }
 .navbar {
@@ -42,14 +69,3 @@ a {
   height: 2rem;
 }
 </style>
-
-<script>
-export default {
-  computed: {
-    navItems() {
-      return this.$page.props.nav.items;
-    },
-  },
-};
-</script>
-
