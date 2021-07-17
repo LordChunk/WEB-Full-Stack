@@ -1,5 +1,6 @@
 <template>
-  <div>
+<div class="login-wrapper">
+  <div class="w-100">
     <h1>Login</h1>
     <form @submit.prevent="submit">
       <div class="form-group">
@@ -12,9 +13,12 @@
         <label for="password">Password</label>
         <input type="password" class="form-control" id="password" v-model="form.password" placeholder="Password">
       </div>
-      <button type="submit" class="btn btn-primary">Sign in</button>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Sign in</button>
+      </div>
     </form>
   </div>
+</div>
 </template>
 
 <script>
@@ -37,6 +41,17 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped lang="scss">
+.form-group {
+  margin-top: 15px;
+}
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  > div {
+    @media (min-width: 768px) {
+      flex-basis: 50%;
+    }
+  }
+}
 </style>

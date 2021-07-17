@@ -2,7 +2,7 @@
   <nav>
     <b-navbar variant="light" type="light" toggleable="lg">
       <b-navbar-brand href="#">
-        <!-- <inertia-link :href="route('employee.dashboard')"> -->
+        <inertia-link :href="route('employee.dashboard')">
         Kassa
         <img
           src="/images/portal.gif"
@@ -10,7 +10,7 @@
           v-b-tooltip.hover
           title="Portaal"
         />
-        <!-- </inertia-link> -->
+        </inertia-link>
       </b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <!-- Generate b-nav-item from navItems array -->
@@ -30,7 +30,7 @@
               <inertia-link href="#">Profiel</inertia-link>
             </b-dropdown-item>
             <b-dropdown-item>
-              <inertia-link :href="route('logout')" method="post">Uitloggen</inertia-link>
+              <inertia-link :href="route('logout')" method="post" as="button">Uitloggen</inertia-link>
             </b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
@@ -55,9 +55,13 @@ export default {
 <style scoped>
 a {
   text-decoration: none;
-}
-#nav-collapse a {
   color: inherit;
+}
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
 }
 .navbar {
   padding-left: 1em;
