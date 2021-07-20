@@ -1,5 +1,5 @@
 <template>
-  <div class="customer-menu">
+  <div>
     <dish-type
       v-for="dishType in dishTypes"
       :key="dishType.name"
@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import Layout from "@/Shared/CustomerLayout.vue";
+import Layout from "@/Shared/BootstrapLayout.vue";
 import DishType from "@/Components/DishCategory.vue";
 export default {
   layout: Layout,
@@ -38,15 +38,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
-* {
-  color: white;
-}
-
-// Style all dish elements according to customer layout
+// Style all dish elements according to employee layout
 ::v-deep .dish-wrapper {
-  margin: 10px 0;
-  padding: 1em;
-  border: 1px solid yellow;
+  padding: 1.5em 0;
 
   .dish-price {
     font-size: 1.2em;

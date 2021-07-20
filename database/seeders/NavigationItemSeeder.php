@@ -27,5 +27,10 @@ class NavigationItemSeeder extends Seeder
             'name'=>'Login',
             'url'=>'/login',
         ]);
+
+        NavigationItem::create([
+          'name'=>'Employee Menu',
+          'url'=>'/employee/menu',
+      ]);
     }
 }

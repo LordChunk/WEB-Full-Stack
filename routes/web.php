@@ -20,8 +20,9 @@ Route::name('customer.')->group(function () {
     Route::get('/menu', [CustomerController::class, 'ShowMenu'])->name('menu');
 });
 
-Route::name('employee.')->group(function () {
+Route::name('employee.')->middleware(['auth'])->group(function () {
     Route::get('/dashboard', [EmployeeController::class, 'index'])->name('dashboard');
+    Route::get('/employee/menu', [EmployeeController::class, 'menu'])->name('menu');
 });
 
 require __DIR__.'/auth.php';

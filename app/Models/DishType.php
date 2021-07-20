@@ -23,4 +23,52 @@ class DishType extends Model
     public function dishes() {
         return $this->hasMany(Dish::class);
     }
+
+    /**
+     * @return DishType[]
+     */
+    public static function GroupByType(): iterable
+    {
+      $types = DishType::with('dishes', 'dishes.description')->get()
+        ->map(function ($dishType) {
+          $returnValue = new class{};
+
+          $returnValue->name = $dishType->name;
+          $returnValue->dishes = $dishType->dishes->map([__CLASS__, 'MapDish']);
+
+          return $returnValue;
+        })->toArray();
+
+      // Sort by id of first dish in each type
+      usort($types, function ($a, $b) {
+        return $a->dishes[0]->id - $b->dishes[0]->id;
+      });
+
+      return $types;
+    }
+
+    // This is public because PHP seeminly makes it impossible to call private methods from other private methods inside mapper methods 🤷
+    public static function MapDish($dish)
+    {
+      $returnValue = new class{};
+
+      $returnValue->id = $dish->id;
+      $returnValue->menu_indicator = $dish->menu_indicator;
+      $returnValue->name = $dish->name;
+      $returnValue->price = number_format($dish->price, 2, ',');
+
+      if (isset($dish->description)) {
+        $returnValue->description = $dish->description->description;
+      } else {
+        $returnValue->description = null;
+      }
+
+      if (isset($dish->type)) {
+        $returnValue->dish_type = $dish->type->name;
+      } else {
+        $returnValue->dish_type = null;
+      }
+
+      return $returnValue;
+    }
 }

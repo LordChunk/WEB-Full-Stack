@@ -1,10 +1,9 @@
 <template>
     <div class="d-flex flex-column vh-100">
         <nav-bar></nav-bar>
-        <main class="flex-shrink-0 container mt-4">
+        <main class="flex-shrink-0 container mt-4 mb-4">
             <slot></slot>
         </main>
-
         <app-footer></app-footer>
     </div>
 </template>
