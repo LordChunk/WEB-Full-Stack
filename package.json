@@ -3,6 +3,7 @@
     "private": true,
     "scripts": {
         "serve": "yarn run hot & php artisan serve",
+        "db:refresh": "php artisan migrate:fresh --seed",
         "dev": "npm run development",
         "development": "mix",
         "watch": "mix watch",
