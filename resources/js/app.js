@@ -6,6 +6,7 @@ import { createInertiaApp } from '@inertiajs/inertia-vue';
 // Plugins
 import { ZiggyVue } from 'ziggy';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
+import StatePlugin from '@/Plugins/state-plugin';
 import OrderPlugin from '@/Plugins/order-plugin';
 
 // Import Bootstrap an BootstrapVue CSS files (order is important)
@@ -16,6 +17,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 Vue.use(ZiggyVue);
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
+Vue.use(StatePlugin);
 Vue.use(OrderPlugin);
 
 createInertiaApp({

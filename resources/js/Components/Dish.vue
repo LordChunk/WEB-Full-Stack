@@ -4,7 +4,7 @@
     <p v-if="dish.description">{{ dish.description }}</p>
     <p class="dish-price">€ {{ dish.price }}</p>
     <p>
-      <button @click="addToCart(dish)">Add to cart</button>
+      <button class="btn btn-outline-info" @click="addToCart(dish)">Voeg toe aan winkelmand</button>
     </p>
   </div>
 </template>
@@ -18,7 +18,12 @@ export default {
   },
   methods: {
     addToCart(dish) {
-      this.$order.addItem(dish);
+      if (this.$store.state.cart === undefined) {
+        this.$store.state.cart = [];
+      }
+      this.$store.state = {
+        cart: this.$store.state.cart.concat(dish),
+      };
     },
   },
 };

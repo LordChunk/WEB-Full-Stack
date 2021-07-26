@@ -1,5 +1,9 @@
 <template>
   <div>
+    <div class="menu-header">
+      <h2>Menukaart</h2>
+      <button class="btn btn-outline-danger" @click="emptyCart">Winkelmand legen</button>
+    </div>
     <dish-type
       v-for="dishType in dishTypes"
       :key="dishType.name"
@@ -34,10 +38,19 @@ export default {
   components: {
     DishType,
   },
+  methods: {
+    emptyCart() {
+      this.$store.clear("cart");
+    },
+  },
 };
 </script>
 
 <style scoped lang="scss">
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+}
 // Style all dish elements according to employee layout
 ::v-deep .dish-wrapper {
   padding: 1.5em 0;
