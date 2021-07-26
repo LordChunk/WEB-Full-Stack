@@ -1,15 +1,31 @@
 <template>
   <div>
-    <div class="menu-header">
-      <h2>Menukaart</h2>
-      <button class="btn btn-outline-danger" @click="emptyCart">Winkelmand legen</button>
+    <div>
+      <div class="menu-header">
+        <h2>Menukaart</h2>
+        <button class="btn btn-outline-danger" @click="emptyCart">
+          Winkelmand legen
+        </button>
+      </div>
+      <dish-type
+        v-for="dishType in dishTypes"
+        :key="dishType.name"
+        :dishType="dishType"
+      >
+      </dish-type>
     </div>
-    <dish-type
-      v-for="dishType in dishTypes"
-      :key="dishType.name"
-      :dishType="dishType"
-    >
-    </dish-type>
+    <div class="basket">
+      <div class="basket-header">
+        <h2>Winkelmand</h2>
+      </div>
+      <div>
+        <div v-for="dish in $store.state.cart" :key="dish.id">
+          <p>
+            {{dish.name}}
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -38,6 +54,11 @@ export default {
   components: {
     DishType,
   },
+  beforeCreate() {
+    if(this.$store.cart === undefined) {
+      this.$store.cart = [];
+    }
+  },
   methods: {
     emptyCart() {
       this.$store.clear("cart");
@@ -51,6 +72,10 @@ export default {
   display: flex;
   justify-content: space-between;
 }
+
+// .basket {
+//   display: absolute;
+// }
 // Style all dish elements according to employee layout
 ::v-deep .dish-wrapper {
   padding: 1.5em 0;
