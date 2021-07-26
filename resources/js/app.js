@@ -1,22 +1,22 @@
 require('./bootstrap');
 
-import Vue from 'vue'
-import { createInertiaApp } from '@inertiajs/inertia-vue'
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import Vue from 'vue';
+import { createInertiaApp } from '@inertiajs/inertia-vue';
 
-// Import Ziggy for route handling
+// Plugins
 import { ZiggyVue } from 'ziggy';
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
+import OrderPlugin from '@/Plugins/order-plugin';
 
 // Import Bootstrap an BootstrapVue CSS files (order is important)
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-// Make BootstrapVue available throughout your project
-Vue.use(BootstrapVue);
-
-// Optionally install the BootstrapVue icon components plugin
-Vue.use(IconsPlugin)
+// Activate plugins
 Vue.use(ZiggyVue);
+Vue.use(BootstrapVue);
+Vue.use(IconsPlugin);
+Vue.use(OrderPlugin);
 
 createInertiaApp({
   resolve: name => require(`./Pages/${name}`),
