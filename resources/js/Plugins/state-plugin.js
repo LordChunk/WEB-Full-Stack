@@ -25,9 +25,9 @@ const stateManager = {
 
   clear(key) {
     if (key) {
-      delete this._state[key];
+      this.state[key] = undefined;
     } else {
-      delete this._state;
+      this.state = {};
     }
     localStorage.setItem('state', JSON.stringify(this._state));
   },
