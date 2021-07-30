@@ -1,8 +1,10 @@
+import { reactive } from 'vue'
+
 export default {
-  install(Vue) {
+  install: (app, options) => {
     // Create observable to ensure reactivity
-    const observableStateManager = Vue.observable(stateManager);
-    Vue.prototype.$store = observableStateManager;
+    const observableStateManager = reactive(stateManager);
+    app.config.globalProperties.$store = observableStateManager;
   }
 }
 
