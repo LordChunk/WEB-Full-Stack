@@ -38,11 +38,16 @@
           </li>
         </ul>
       </div>
+      <div>
+        <SwitchLanguage />
+      </div>
     </div>
   </nav>
 </template>
 
 <script>
+import SwitchLanguage from '@/components/SwitchLanguage.vue'
+
 export default {
   computed: {
     navItems() {
@@ -51,6 +56,9 @@ export default {
     user() {
       return this.$page.props.auth.user;
     },
+  },
+  components: {
+    SwitchLanguage,
   },
 };
 </script>
