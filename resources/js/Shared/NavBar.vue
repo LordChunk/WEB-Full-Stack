@@ -44,7 +44,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div>
-        <SwitchLanguage />
+        <switch-language/>
       </div>
     </div>
   </nav>
