@@ -23,7 +23,7 @@ class RoleSeeder extends Seeder
         Role::create([
             'id' => 2,
             'role' => 'superUser',
-            'permission_level' => 100,
+            'permission_level' => 1,
         ]);
     }
 }
