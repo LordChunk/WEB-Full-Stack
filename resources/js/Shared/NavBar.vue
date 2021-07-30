@@ -1,41 +1,44 @@
 <template>
-  <nav>
-    <b-navbar variant="light" type="light" toggleable="lg">
-      <b-navbar-brand href="#">
-        <inertia-link :href="route('employee.dashboard')">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <inertia-link class="navbar-brand" :href="route('employee.dashboard')">
         Kassa
-        <img
-          src="/images/portal.gif"
-          alt="portal"
-          v-b-tooltip.hover
-          title="Portaal"
-        />
-        </inertia-link>
-      </b-navbar-brand>
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-      <!-- Generate b-nav-item from navItems array -->
-      <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav>
-          <b-nav-item v-for="navItem in navItems" :key="navItem.id">
-            <inertia-link :href="navItem.url">
+        <img src="/images/portal.gif" alt="portal" />
+      </inertia-link>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#nav-bar-collapse"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav-bar-collapse">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item" v-for="navItem in navItems" :key="navItem.id">
+            <inertia-link class="nav-link" :href="navItem.url">
               {{ navItem.name }}
             </inertia-link>
-          </b-nav-item>
-        </b-navbar-nav>
-
-        <!-- Right aligned nav items -->
-        <b-navbar-nav class="ml-auto" v-if="user !== null">
-          <b-nav-item-dropdown :text="user.email">
-            <b-dropdown-item>
-              <inertia-link href="#">Profiel</inertia-link>
-            </b-dropdown-item>
-            <b-dropdown-item>
-              <inertia-link :href="route('logout')" method="post" as="button">Uitloggen</inertia-link>
-            </b-dropdown-item>
-          </b-nav-item-dropdown>
-        </b-navbar-nav>
-      </b-collapse>
-    </b-navbar>
+          </li>
+        </ul>
+      </div>
+      <!-- Right aligned nav items -->
+      <div class="nav-item dropdown ml-auto" v-if="user !== null">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">
+          {{ user.email }}
+        </a>
+        <ul class="dropdown-menu">
+          <li class="dropdown-item">
+            <inertia-link href="#">Profiel</inertia-link>
+          </li>
+          <li class="dropdown-item">
+            <inertia-link :href="route('logout')" method="post" as="button">
+              Uitloggen
+            </inertia-link>
+          </li>
+        </ul>
+      </div>
+    </div>
   </nav>
 </template>
 
@@ -67,7 +70,7 @@ button {
   padding-left: 1em;
   padding-right: 1em;
 }
-.navbar-brand img {
+img {
   height: 2rem;
 }
 </style>
