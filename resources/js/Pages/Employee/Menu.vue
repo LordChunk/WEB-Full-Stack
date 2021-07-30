@@ -72,7 +72,7 @@
   max-height: 0;
 }
 // Style all dish elements according to employee layout
-::v-deep .dish-wrapper {
+:deep(.dish-wrapper) {
   padding: 1.5em 0;
 
   .dish-price {

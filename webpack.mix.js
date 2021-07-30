@@ -13,7 +13,7 @@ const path = require('path');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-  .vue({ version: 2 })
+  .vue({ version: 3 })
   .alias({
     '@': 'resources/js',
     'ziggy': path.resolve('vendor/tightenco/ziggy/dist/vue'),

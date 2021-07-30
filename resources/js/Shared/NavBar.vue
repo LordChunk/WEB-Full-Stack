@@ -5,14 +5,6 @@
         Kassa
         <img src="/images/portal.gif" alt="portal" />
       </inertia-link>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#nav-bar-collapse"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
       <div class="collapse navbar-collapse" id="nav-bar-collapse">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item" v-for="navItem in navItems" :key="navItem.id">
@@ -24,7 +16,12 @@
       </div>
       <!-- Right aligned nav items -->
       <div class="nav-item dropdown ml-auto" v-if="user !== null">
-        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">
+        <a
+          class="nav-link dropdown-toggle"
+          data-bs-toggle="dropdown"
+          href="#"
+          role="button"
+        >
           {{ user.email }}
         </a>
         <ul class="dropdown-menu">
@@ -38,6 +35,14 @@
           </li>
         </ul>
       </div>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#nav-bar-collapse"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
       <div>
         <SwitchLanguage />
       </div>
