@@ -43,7 +43,7 @@ export default {
 }
 
 // Style all dish elements according to customer layout
-::v-deep .dish-wrapper {
+:deep(.dish-wrapper) {
   margin: 10px 0;
   padding: 1em;
   border: 1px solid yellow;
