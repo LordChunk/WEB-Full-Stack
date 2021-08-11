@@ -5,6 +5,7 @@
         <div class="col-md-4">
           <h4>Copyright</h4>
           <p>
+            {{ $t("message.hello") }}
             <a href="https://github.com/LordChunk/WEB-Full-Stack">
             WEB-Full-Stack
             </a>
@@ -21,6 +22,9 @@
               <a :href="contributor.html_url" target="_BLANK">{{ contributor.login }}</a>
             </li>
           </ul>
+        </div>
+        <div>
+        <switch-language/>
         </div>
       </div>
     </div>
@@ -50,6 +54,7 @@ ul {
 <script>
 import axios from "axios";
 import packageInfo from "../../../package.json";
+import SwitchLanguage from '@/components/SwitchLanguage.vue'
 
 export default {
   data() {
@@ -71,6 +76,9 @@ export default {
       const response = await axios.get("https://api.github.com/repos/LordChunk/WEB-Full-Stack/contributors");
       this.contributors = response.data;
     },
+  },
+  components: {
+    SwitchLanguage,
   },
 };
 </script>

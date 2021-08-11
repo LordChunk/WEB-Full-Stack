@@ -43,15 +43,11 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div>
-        <switch-language/>
-      </div>
     </div>
   </nav>
 </template>
 
 <script>
-import SwitchLanguage from '@/components/SwitchLanguage.vue'
 
 export default {
   computed: {
@@ -61,9 +57,6 @@ export default {
     user() {
       return this.$page.props.auth.user;
     },
-  },
-  components: {
-    SwitchLanguage,
   },
 };
 </script>
