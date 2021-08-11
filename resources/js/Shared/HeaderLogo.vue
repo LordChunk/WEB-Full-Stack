@@ -1,7 +1,7 @@
 <template>
   <div>
     <img src="/images/dragon.png" alt="Dragon Logo" />
-    <span> De Gouden Draak </span>
+    <span> {{ $t("message.restaurantName") }}</span>
     <img src="/images/dragon.png" class="mirror-horizontal" alt="Dragon Logo" />
   </div>
 </template>
@@ -16,7 +16,7 @@ div {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  width: 15em;
+  width: 16em;
 }
 img {
   width: 50px;

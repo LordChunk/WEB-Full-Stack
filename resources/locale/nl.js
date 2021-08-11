@@ -1,6 +1,9 @@
 const translationsNl = {
   message: {
-    hello: 'hallo wereld'
+    advertisement: 'Zieke ads hier man kopen die handel',
+    restaurantName: 'De Gouden Draak',
+    specialties: 'Chineese Indische Specialiteiten',
+    WelcomeMessage: 'Hallo daar, Generaal Kenobi',
   }
 }
 

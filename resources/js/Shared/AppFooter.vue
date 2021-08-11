@@ -5,7 +5,6 @@
         <div class="col-md-4">
           <h4>Copyright</h4>
           <p>
-            {{ $t("message.hello") }}
             <a href="https://github.com/LordChunk/WEB-Full-Stack">
             WEB-Full-Stack
             </a>

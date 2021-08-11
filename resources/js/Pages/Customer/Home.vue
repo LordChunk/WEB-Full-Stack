@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Hello there home</h1>
+        <h1>{{ $t("message.WelcomeMessage") }}</h1>
     </div>
 </template>
 

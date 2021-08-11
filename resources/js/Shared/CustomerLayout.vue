@@ -10,7 +10,7 @@
           </div>
           <!-- Banner moving right to left with ad -->
           <header-marquee>
-            <h3>Zieke ads hier man kopen die handel</h3>
+            <h3>{{ $t("message.advertisement") }}</h3>
           </header-marquee>
           <div>
             <!-- Nav logo right -->
@@ -33,6 +33,7 @@
 import HeaderLogo from "@/Shared/HeaderLogo.vue";
 import HeaderMarquee from "@/Shared/Marquee.vue";
 import NavBar from "@/Shared/CustomerNavBar.vue";
+
 export default {
   components: {
     HeaderLogo,
