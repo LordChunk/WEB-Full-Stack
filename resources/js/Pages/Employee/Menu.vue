@@ -3,7 +3,7 @@
     <div>
       <div class="menu-header">
         <h2>Menukaart</h2>
-        <button class="btn btn-outline-danger" @click="emptyCart()">
+        <button class="btn btn-outline-danger" @click="$order.clear()">
           Winkelmand legen
         </button>
       </div>
@@ -118,9 +118,6 @@ export default {
     };
   },
   methods: {
-    emptyCart() {
-      this.$order.clear();
-    },
     clickCart() {
       this.isCartOpen = !this.isCartOpen;
     },
