@@ -22,6 +22,9 @@
             </li>
           </ul>
         </div>
+        <div>
+        <switch-language/>
+        </div>
       </div>
     </div>
   </footer>
@@ -50,6 +53,7 @@ ul {
 <script>
 import axios from "axios";
 import packageInfo from "../../../package.json";
+import SwitchLanguage from '@/components/SwitchLanguage.vue'
 
 export default {
   data() {
@@ -71,6 +75,9 @@ export default {
       const response = await axios.get("https://api.github.com/repos/LordChunk/WEB-Full-Stack/contributors");
       this.contributors = response.data;
     },
+  },
+  components: {
+    SwitchLanguage,
   },
 };
 </script>

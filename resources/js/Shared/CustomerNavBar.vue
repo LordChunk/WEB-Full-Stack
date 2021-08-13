@@ -3,8 +3,8 @@
     <div class="title">
       <img src="/images/dragon.png" alt="Dragon Logo" class="hidden-mobile" />
       <div>
-        <h1>De Gouden Draak</h1>
-        <h2>Chineese Indische Specialiteiten</h2>
+        <h1>{{ $t("message.restaurantName") }}</h1>
+        <h2>{{ $t("message.specialties") }}</h2>
       </div>
       <img
         src="/images/dragon.png"
@@ -24,16 +24,23 @@
         {{ navItem.name }}
       </inertia-link>
     </div>
+    <switch-language/>
   </div>
 </template>
 
 <script>
+import SwitchLanguage from '@/components/SwitchLanguage.vue'
+
 export default {
   computed: {
     navItems() {
       return this.$page.props.nav.items;
     },
   },
+
+  components:{
+    SwitchLanguage,
+  }
 };
 </script>
 

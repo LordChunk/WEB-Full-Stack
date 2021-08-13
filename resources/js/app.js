@@ -8,10 +8,10 @@ import { InertiaProgress } from '@inertiajs/progress'
 import { ZiggyVue } from 'ziggy';
 import StatePlugin from '@/Plugins/state-plugin';
 import OrderPlugin from '@/Plugins/order-plugin';
+import TranslationPlugin from '@/Plugins/translation-plugin.js';
 
 // Inertia lnk
 import { InertiaLink } from '@inertiajs/inertia-vue3'
-
 
 InertiaProgress.init()
 
@@ -21,6 +21,7 @@ createInertiaApp({
         createApp({ render: () => h(App, props) })
             .use(plugin)
             .use(ZiggyVue)
+            .use(TranslationPlugin)
             .use(StatePlugin)
             .use(OrderPlugin)
             .component('inertia-link', InertiaLink)
