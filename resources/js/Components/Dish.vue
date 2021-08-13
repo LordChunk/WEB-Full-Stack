@@ -1,6 +1,10 @@
 <template>
   <div class="dish-wrapper">
-    <h2>{{ dish.menu_indicator }} {{ dish.name }}</h2>
+    <div class="dish-header">
+      <h2>{{ dish.menu_indicator }} {{ dish.name }}</h2>
+      <i @click="toggleFavorite(dish)" class="far fa-heart"></i>
+    </div>
+
     <p v-if="dish.description">{{ dish.description }}</p>
     <p class="dish-price">€ {{ dish.price }}</p>
     <p>
@@ -25,6 +29,36 @@ export default {
         cart: this.$store.state.cart.concat(dish),
       };
     },
+
+    toggleFavorite(dish) {
+
+      let storedFavs = JSON.parse(localStorage.getItem("favorites") || "[]");
+
+      let result = storedFavs.indexOf(dish);
+
+      console.log(result)
+
+      if (result !== -1){
+        storedFavs.splice(result,1);
+        // storedFavs = storedFavs.filter(function (dish){
+        //   return dish !== value;
+        // });
+      }
+      else{
+        storedFavs.push(dish);
+      }
+
+      localStorage.setItem("favorites", JSON.stringify(storedFavs));
+
+      console.log(storedFavs)
+    },
   },
 };
 </script>
+
+<style scoped>
+.dish-header{
+  display: flex;
+  justify-content: space-between;
+}
+</style>
