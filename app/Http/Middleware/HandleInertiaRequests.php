@@ -38,7 +38,15 @@ class HandleInertiaRequests extends Middleware
       // Pass the navigation items to the view.
       'nav.items' => fn () => NavigationItem::all() ?? [],
       'auth' => [
-        'user' => $request->user(),
+        'user' => function (Request $request) {
+          // Add role to the user.
+          $user =  $request->user();
+          // Get roles for logged in users
+          if(isset($user)) {
+            $user->role = $user->role()->first();
+          }
+          return $user ?? null;
+        },
       ],
     ]);
   }

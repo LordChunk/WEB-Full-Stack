@@ -7,10 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    public function users()
-    {
-        return $this->hasMany(User::class);
-    }
+  /**
+   * The attributes that are mass assignable.
+   *
+   * @var array
+   */
+  protected $fillable = [
+    'name',
+    'permission_level',
+  ];
+
+  public function users()
+  {
+    return $this->hasMany(User::class);
+  }
 }
