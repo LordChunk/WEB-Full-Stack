@@ -11,7 +11,7 @@
     </div>
 
     <p v-if="dish.description">{{ dish.description }}</p>
-    <p class="dish-price">€ {{ dish.price }}</p>
+    <p class="dish-price">{{ $formatPrice(dish.price) }}</p>
     <p>
       <button
         v-if="isEmployeeMenu"
