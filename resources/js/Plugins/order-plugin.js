@@ -2,23 +2,16 @@ import { reactive } from 'vue'
 
 export default {
   install: (app, options) => {
-    // Init order plugin
+    // Init order plugin with previous data
+    orderPlugin.content = JSON.parse(localStorage.getItem('order'));
     // ensure reactivity
     app.config.globalProperties.$order = reactive(orderPlugin);
-  }
+  },
+
 }
 
 const orderPlugin = {
-  _content: [],
-
-  get content() {
-    return this._content;
-  },
-
-  set content(value) {
-    this._content = value;
-    localStorage.setItem('order', JSON.stringify(this._content));
-  },
+  content: [],
 
   add(item) {
     // Check if the item is already in the basket
@@ -29,6 +22,7 @@ const orderPlugin = {
       // increase the quantity of the item
       this.content[this.content.indexOf(item)].quantity++;
     }
+    this.saveToLocalStorage();
   },
   remove(item) {
     // decrease the quantity of the item
@@ -37,9 +31,11 @@ const orderPlugin = {
     if (this.content[this.content.indexOf(item)].quantity === 0) {
       this.content.splice(this.content.indexOf(item), 1);
     }
+    this.saveToLocalStorage();
   },
   clear() {
     this.content = [];
+    this.saveToLocalStorage();
   },
   getTotal() {
     let total = 0;
@@ -48,4 +44,9 @@ const orderPlugin = {
     }
     return total;
   },
+
+  saveToLocalStorage() {
+    localStorage.setItem('order', JSON.stringify(this.content));
+  }
 }
+
