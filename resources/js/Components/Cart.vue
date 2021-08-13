@@ -120,7 +120,6 @@ export default {
   transition: all 300ms;
   // Add hover effect
   &:hover {
-    background: #bdf4ff;
     box-shadow: 0px 9px 15px 15px rgb(0 0 0 / 10%);
   }
   button {
