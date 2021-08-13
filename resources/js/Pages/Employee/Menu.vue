@@ -3,7 +3,7 @@
     <div>
       <div class="menu-header">
         <h2>Menukaart</h2>
-        <button class="btn btn-outline-danger" @click="emptyCart">
+        <button class="btn btn-outline-danger" @click="emptyCart()">
           Winkelmand legen
         </button>
       </div>
@@ -16,7 +16,7 @@
     </div>
     <div
       class="cart container px-4"
-      v-bind:class="{ 'open-cart': isCartOpen, 'hide-cart': $store.state.cart.length === 0 }"
+      v-bind:class="{ 'open-cart': isCartOpen, 'hide-cart': $order.content.length === 0 }"
     >
       <div class="draggable" @click="clickCart">
         <img src="/images/drag_handle_black_24dp.svg" />
@@ -25,7 +25,7 @@
         <h2>Winkelmand</h2>
       </div>
       <div>
-        <div v-for="dish in $store.state.cart" :key="dish.id">
+        <div v-for="dish in $order.content" :key="dish.id">
           <p>
             {{ dish.name }}
           </p>
@@ -117,14 +117,9 @@ export default {
       isCartOpen: false,
     };
   },
-  beforeCreate() {
-    if (this.$store.state.cart === undefined) {
-      this.$store.state.cart = [];
-    }
-  },
   methods: {
     emptyCart() {
-      this.$store.state.cart = [];
+      this.$order.clear();
     },
     clickCart() {
       this.isCartOpen = !this.isCartOpen;
