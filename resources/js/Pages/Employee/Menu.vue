@@ -1,11 +1,8 @@
 <template>
-  <div>
-    <div>
+  <div class="wrapper">
+    <div class="menu-wrapper">
       <div class="menu-header">
         <h2>Menukaart</h2>
-        <button class="btn btn-outline-danger" @click="$order.clear()">
-          Winkelmand legen
-        </button>
       </div>
       <dish-type
         v-for="dishType in dishTypes"
@@ -19,10 +16,16 @@
 </template>
 
 <style scoped lang="scss">
-.menu-header {
-  display: flex;
-  justify-content: space-between;
+// Desktop only styling
+@media (min-width: 768px) {
+  .wrapper {
+    display: flex;
+  }
+  .menu-wrapper {
+    max-width: 50vw;
+  }
 }
+
 // Style all dish elements according to employee layout
 :deep(.dish-wrapper) {
   padding: 1.5em 0;
