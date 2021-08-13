@@ -16,13 +16,13 @@ class RoleSeeder extends Seeder
     {
         Role::create([
             'id' => 1,
-            'role' => 'employee',
+            'name' => 'employee',
             'permission_level' => 50,
         ]);
 
         Role::create([
             'id' => 2,
-            'role' => 'superUser',
+            'name' => 'superUser',
             'permission_level' => 1,
         ]);
     }

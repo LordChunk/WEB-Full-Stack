@@ -48,15 +48,16 @@
 </template>
 
 <script>
-
 export default {
   computed: {
     navItems() {
       return this.$page.props.nav.items;
     },
-    user() {
-      return this.$page.props.auth.user;
-    },
+  },
+  data() {
+    return {
+      user: this.$auth.user
+    };
   },
 };
 </script>
