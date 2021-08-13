@@ -3,6 +3,7 @@
     <div class="dish-header">
       <h2>{{ dish.menu_indicator }} {{ dish.name }}</h2>
       <i
+        v-if="isCustomerMenu"
         @click="toggleFavorite(dish)"
         :class="{ fas: isFavourite, far: !isFavourite }"
         class="far fa-heart"
@@ -12,7 +13,11 @@
     <p v-if="dish.description">{{ dish.description }}</p>
     <p class="dish-price">€ {{ dish.price }}</p>
     <p>
-      <button class="btn btn-outline-info" @click="addToCart(dish)">
+      <button
+        v-if="isEmployeeMenu"
+        @click="addToCart(dish)"
+        class="btn btn-outline-info"
+      >
         Voeg toe aan winkelmand
       </button>
     </p>
@@ -29,6 +34,8 @@ export default {
   data() {
     return {
       isFavourite: false,
+      isEmployeeMenu: route().current().startsWith('employee.'),
+      isCustomerMenu: route().current().startsWith('customer.'),
     };
   },
   created() {
