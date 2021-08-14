@@ -30,6 +30,12 @@
           </strong>
         </div>
       </div>
+      <div class="checkout-wrapper">
+        <strong>
+          Totaalprijs: {{ $formatPrice($order.getTotalPrice()) }}
+        </strong>
+        <button class="btn btn-success" @click="checkout()">Afrekenen</button>
+      </div>
     </div>
   </div>
 </template>
@@ -52,7 +58,7 @@ export default {
       setTimeout(() => {
         this.$order.clear();
       }, 300);
-    }
+    },
   },
 };
 </script>
@@ -62,6 +68,9 @@ export default {
   background: #bdf4ff;
   border-radius: 1rem 1rem 0 0;
   box-shadow: 0px 9px 15px 15px rgb(0 0 0 / 17%);
+  @media (min-width: 768px) {
+    padding: 0 1rem;
+  }
 
   // Desktop only
   @media (min-width: 768px) {
@@ -112,8 +121,7 @@ export default {
   align-items: center;
   align-content: center;
   flex-wrap: wrap;
-  padding: 0.5rem;
-  margin: 0.5rem;
+  margin: 1rem 0;
   border-radius: 0.5rem;
   background: #fff;
   box-shadow: 0px 9px 15px 15px rgb(0 0 0 / 10%);
@@ -141,8 +149,15 @@ export default {
     width: -webkit-fill-available;
 
     // Add padding which is the same as Boostrap buttons
-    padding: .375rem .75rem;
+    padding: 0.375rem 0.75rem;
   }
+}
+
+.checkout-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
 }
 
 .open-cart {

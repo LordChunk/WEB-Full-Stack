@@ -37,7 +37,7 @@ const orderPlugin = {
     this.content = [];
     this.saveToLocalStorage();
   },
-  getTotal() {
+  getTotalPrice() {
     let total = 0;
     for (let i = 0; i < this.content.length; i++) {
       total += this.content[i].price * this.content[i].quantity;
