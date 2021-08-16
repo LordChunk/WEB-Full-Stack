@@ -1,6 +1,8 @@
 <template>
   <div class="marquee">
-    <slot></slot>
+    <div>
+      <slot></slot>
+    </div>
   </div>
 </template>
 
