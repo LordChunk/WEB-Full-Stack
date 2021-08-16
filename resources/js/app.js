@@ -9,7 +9,6 @@ import { ZiggyVue } from 'ziggy';
 import AuthPlugin from '@/Plugins/auth-plugin';
 import TranslationPlugin from '@/Plugins/translation-plugin.js';
 import PriceFormattingPlugin from '@/Plugins/price-formatting-plugin';
-import StatePlugin from '@/Plugins/state-plugin';
 import OrderPlugin from '@/Plugins/order-plugin';
 
 // Inertia lnk
@@ -26,7 +25,6 @@ createInertiaApp({
             .use(AuthPlugin)
             .use(TranslationPlugin)
             .use(PriceFormattingPlugin)
-            .use(StatePlugin)
             .use(OrderPlugin)
             .component('inertia-link', InertiaLink)
             .mount(el)

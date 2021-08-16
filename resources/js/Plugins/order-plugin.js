@@ -3,7 +3,7 @@ import { reactive } from 'vue'
 export default {
   install: (app, options) => {
     // Init order plugin with previous data
-    orderPlugin.content = JSON.parse(localStorage.getItem('order'));
+    orderPlugin.content = JSON.parse(localStorage.getItem('order') || '[]');
     // ensure reactivity
     app.config.globalProperties.$order = reactive(orderPlugin);
   },

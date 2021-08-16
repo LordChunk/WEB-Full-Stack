@@ -26,18 +26,16 @@
 <script>
 import Cart from "@/Components/Cart.vue";
 import layout from "@/Shared/BootstrapLayout.vue";
-import { Inertia } from '@inertiajs/inertia';
+import { Inertia } from "@inertiajs/inertia";
 
 export default {
   layout,
   components: { Cart },
   methods: {
     confirmOrder() {
-      Inertia.post(route("employee.order.confirm"), this.$order.content).then((e) => {
-        console.log(e);
-      });
-    }
-  }
+      Inertia.post(route("employee.order.confirm"), this.$order.content);
+    },
+  },
 };
 </script>
 

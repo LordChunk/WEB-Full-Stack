@@ -35,15 +35,29 @@ class EmployeeController extends Controller
         // Get multiply quantity of each dish and add it to the order
         $price = 0;
         foreach ($dishes as $dish) {
-            $price += $dish['quantity'] * Dish::find($dish['id'])->price;
+            $dishPrice = Dish::find($dish['id'])->price;
+            $price += $dish['quantity'] * $dishPrice;
+            $dish['price'] = $dishPrice;
         }
 
-        dd($price);
-
-        Order::create([
+        $order = Order::create([
             "user_id" => $userId,
             "price" => $price,
-            "dishes" => json_encode($dishes)
+        ]);
+
+        // Add dishes to the order
+        foreach ($dishes as $dish) {
+            $order->dishes()->attach(
+                $dish['id'],
+                [
+                    'quantity' => $dish['quantity'],
+                    'price' => $dish['price'],
+                ]
+            );
+        }
+
+        return Inertia::render('Employee/OrderSuccess', [
+            'orderId' => $order->id,
         ]);
     }
 }
