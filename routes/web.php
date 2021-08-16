@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::name('customer.')->group(function () {
     Route::get('/', [CustomerController::class, 'home'])->name('home');
     Route::get('/menu', [CustomerController::class, 'ShowMenu'])->name('menu');
+    Route::get('/news', [CustomerController::class, 'news'])->name('news');
+    Route::get('/about', [CustomerController::class, 'about'])->name('about');
 });
 
 Route::name('employee.')->middleware(['auth'])->group(function () {

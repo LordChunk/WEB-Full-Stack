@@ -31,6 +31,16 @@ class NavigationItemSeeder extends Seeder
         NavigationItem::create([
           'name'=>'Employee Menu',
           'url'=>'/employee/menu',
-      ]);
+        ]);
+
+        NavigationItem::create([
+            'name'=>'Nieuws',
+            'url'=>'/news',
+        ]);
+
+        NavigationItem::create([
+            'name'=>'Over ons',
+            'url'=>'/about',
+        ]);
     }
 }
