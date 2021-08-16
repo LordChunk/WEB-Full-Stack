@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Layout from '@/Shared/BootstrapLayout.vue'
+import Layout from '@/Shared/CustomerLayout.vue'
 
 export default {
   layout: Layout,
