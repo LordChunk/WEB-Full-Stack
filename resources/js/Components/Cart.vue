@@ -34,7 +34,7 @@
         <strong>
           Totaalprijs: {{ $formatPrice($order.getTotalPrice()) }}
         </strong>
-        <button class="btn btn-success" @click="checkout()">Afrekenen</button>
+        <inertia-link class="btn btn-success" :href="route('employee.order')">Afrekenen</inertia-link>
       </div>
     </div>
   </div>
@@ -63,7 +63,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .cart {
   background: #bdf4ff;
   border-radius: 1rem 1rem 0 0;
