@@ -11,11 +11,11 @@
     </div>
 
     <p v-if="dish.description">{{ dish.description }}</p>
-    <p class="dish-price">€ {{ dish.price }}</p>
+    <p class="dish-price">{{ $formatPrice(dish.price) }}</p>
     <p>
       <button
         v-if="isEmployeeMenu"
-        @click="addToCart(dish)"
+        @click="$order.add(dish)"
         class="btn btn-outline-info"
       >
         Voeg toe aan winkelmand
@@ -42,15 +42,6 @@ export default {
     this.isFavourite = this.isDishFavorited(this.dish);
   },
   methods: {
-    addToCart(dish) {
-      if (this.$store.state.cart === undefined) {
-        this.$store.state.cart = [];
-      }
-      this.$store.state = {
-        cart: this.$store.state.cart.concat(dish),
-      };
-    },
-
     toggleFavorite(dish) {
       // Fetch current favourited dishes
       let favourites = JSON.parse(localStorage.getItem("favorites") || "[]");

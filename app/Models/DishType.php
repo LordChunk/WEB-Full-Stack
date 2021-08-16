@@ -55,7 +55,7 @@ class DishType extends Model
       $returnValue->id = $dish->id;
       $returnValue->menu_indicator = $dish->menu_indicator;
       $returnValue->name = $dish->name;
-      $returnValue->price = number_format($dish->price, 2, ',');
+      $returnValue->price = number_format($dish->price, 2, '.');
 
       if (isset($dish->description)) {
         $returnValue->description = $dish->description->description;

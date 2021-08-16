@@ -24,7 +24,7 @@ class CreateNewMenu extends Migration
             $table->text('description');
         });
 
-        Schema::create('new_menu', function (Blueprint $table) {
+        Schema::create('dishes', function (Blueprint $table) {
             $table->id();
             $table->string('menu_indicator');
             $table->string('name');
