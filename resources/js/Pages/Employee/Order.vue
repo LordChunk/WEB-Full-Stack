@@ -33,7 +33,11 @@ export default {
   components: { Cart },
   methods: {
     confirmOrder() {
-      Inertia.post(route("employee.order.confirm"), this.$order.content);
+      Inertia.post(route("employee.order.confirm"), this.$order.content, {
+        onSuccess: () => {
+          this.$order.clear();
+        }
+      });
     },
   },
 };
