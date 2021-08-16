@@ -21,6 +21,11 @@ class EmployeeController extends Controller
         return Inertia::render('Employee/Menu', ['dishTypes' => DishType::GroupByType()]);
     }
 
+    public function Sales()
+    {
+        return Inertia::render('Employee/Sales');
+    }
+
     public function Order()
     {
         return Inertia::render('Employee/Order');
