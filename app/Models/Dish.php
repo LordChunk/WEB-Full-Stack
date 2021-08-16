@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Dish extends Model
 {
     use HasFactory;
-    protected $table = 'menu';
     public $timestamps = false;
 
     protected $fillable = [
@@ -19,13 +18,18 @@ class Dish extends Model
         'price',
     ];
 
-    public function Type(): BelongsTo
+    public function type(): BelongsTo
     {
         return $this->belongsTo(DishType::class, 'dish_type_id');
     }
 
-    public function Description(): BelongsTo
+    public function description(): BelongsTo
     {
         return $this->belongsTo(DishDescription::class, 'description_id');
+    }
+
+    public function orders() {
+        return $this->belongsToMany(Order::class)
+            ->withPivot(['quantity', 'price']);
     }
 }

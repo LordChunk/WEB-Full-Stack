@@ -28,12 +28,8 @@ class ImportOldDatabase extends Migration
         // Drop tables with unused data
         Schema::dropIfExists('gebruiker');
 
-        // Shuffle names (this can't be done earlier as some table names are set in the actual .sql file)
-        Schema::rename('menu', 'old_menu');
-        Schema::rename('new_menu', 'menu');
-
         // Migrate over old menu data
-        DB::table('old_menu')->eachById(function ($oldDish) {
+        DB::table('menu')->eachById(function ($oldDish) {
             // Add dish types to db
             $dishType = DishType::firstOrCreate(['name' => $oldDish->soortgerecht]);
 
@@ -62,7 +58,7 @@ class ImportOldDatabase extends Migration
         });
 
         // Drop old menu data
-        Schema::dropIfExists('old_menu');
+        Schema::dropIfExists('menu');
     }
 
     private function sanitiseText(string $text) {

@@ -8,7 +8,7 @@ import { InertiaProgress } from '@inertiajs/progress'
 import { ZiggyVue } from 'ziggy';
 import AuthPlugin from '@/Plugins/auth-plugin';
 import TranslationPlugin from '@/Plugins/translation-plugin.js';
-import StatePlugin from '@/Plugins/state-plugin';
+import PriceFormattingPlugin from '@/Plugins/price-formatting-plugin';
 import OrderPlugin from '@/Plugins/order-plugin';
 
 // Inertia lnk
@@ -24,7 +24,7 @@ createInertiaApp({
             .use(ZiggyVue)
             .use(AuthPlugin)
             .use(TranslationPlugin)
-            .use(StatePlugin)
+            .use(PriceFormattingPlugin)
             .use(OrderPlugin)
             .component('inertia-link', InertiaLink)
             .mount(el)
