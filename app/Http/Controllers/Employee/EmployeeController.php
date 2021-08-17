@@ -78,6 +78,7 @@ class EmployeeController extends Controller
             ->select(['dish_id', 'dishes.name', 'dish_order.price', DB::raw('SUM(quantity) as total_quantity')])
             ->groupBy(['dish_id', 'price'])
             ->join('dishes', 'dish_order.dish_id', '=', 'dishes.id')
+            ->orderBy('dish_id')
             ->get();
         } else {
             $bookKeepingDataset = [];
