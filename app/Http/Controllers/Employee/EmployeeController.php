@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use App\Models\Order;
 use App\Models\DishType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class EmployeeController extends Controller
@@ -19,11 +20,6 @@ class EmployeeController extends Controller
     public function Menu()
     {
         return Inertia::render('Employee/Menu', ['dishTypes' => DishType::GroupByType()]);
-    }
-
-    public function Sales()
-    {
-        return Inertia::render('Employee/Sales');
     }
 
     public function Order()
@@ -63,6 +59,34 @@ class EmployeeController extends Controller
 
         return Inertia::render('Employee/OrderSuccess', [
             'orderId' => $order->id,
+        ]);
+    }
+
+    // GET
+    public function Sales(Request $request)
+    {
+        $beginDate = $request->input('beginDate') ?? '1950/01/01';
+        $endDate = $request->input('endDate') ?? date('Y-m-d');
+
+        // Get sales within the specified date range
+        $orderIds = Order::whereBetween('created_at', [$beginDate." 00:00:00", $endDate." 23:59:59"])->pluck('id')->toArray();
+
+        // Get all ordered dishes and get the quantity of each dish per price tag
+        if(!empty($orderIds)) {
+            $bookKeepingDataset = DB::table('dish_order')
+            ->whereIn('order_id', $orderIds)
+            ->select(['dish_id', 'dishes.name', 'dish_order.price', DB::raw('SUM(quantity) as total_quantity')])
+            ->groupBy(['dish_id', 'price'])
+            ->join('dishes', 'dish_order.dish_id', '=', 'dishes.id')
+            ->get();
+        } else {
+            $bookKeepingDataset = [];
+        }
+
+        return Inertia::render('Employee/Sales', [
+            'serverBeginDate' => $beginDate,
+            'serverEndDate' => $endDate,
+            'sales' => $bookKeepingDataset,
         ]);
     }
 }

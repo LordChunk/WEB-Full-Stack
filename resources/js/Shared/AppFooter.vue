@@ -23,7 +23,7 @@
           </ul>
         </div>
         <div>
-        <switch-language/>
+        <!-- <switch-language/> -->
         </div>
       </div>
     </div>
