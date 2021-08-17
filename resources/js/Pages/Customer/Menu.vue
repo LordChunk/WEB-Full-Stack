@@ -6,7 +6,7 @@
       :dishType="dishType"
     />
   </div>
-  <cart />
+  <cart></cart>
 </template>
 
 <script>
@@ -48,6 +48,7 @@ export default {
     max-width: 40vw;
   }
 }
+
 // Style all dish elements according to customer layout
 :deep(.dish-wrapper) {
   margin: 10px 0;
@@ -62,6 +63,14 @@ export default {
   // Remove margin from last p tag
   p:last-child {
     margin: 0;
+  }
+}
+
+.cart {
+  background: darkred;
+  border: 1px solid yellow;
+  :deep(.cart-dish) {
+    color: black;
   }
 }
 </style>

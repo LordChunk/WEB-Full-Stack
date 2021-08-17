@@ -23,15 +23,15 @@ class NavigationItemSeeder extends Seeder
             'name'=>'Menu',
             'url'=>'/menu',
         ]);
-        NavigationItem::create([
-            'name'=>'Login',
-            'url'=>'/login',
-        ]);
+        // NavigationItem::create([
+        //     'name'=>'Login',
+        //     'url'=>'/login',
+        // ]);
 
-        NavigationItem::create([
-          'name'=>'Employee Menu',
-          'url'=>'/employee/menu',
-        ]);
+        // NavigationItem::create([
+        //   'name'=>'Employee Menu',
+        //   'url'=>'/employee/menu',
+        // ]);
 
         NavigationItem::create([
             'name'=>'Nieuws',
