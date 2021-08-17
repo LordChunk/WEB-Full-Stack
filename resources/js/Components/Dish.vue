@@ -20,6 +20,13 @@
       >
         Voeg toe aan winkelmand
       </button>
+      <button
+        v-if="isCustomerMenu"
+        @click="$order.add(dish)"
+        class="btn btn-light right"
+      >
+        Voeg toe aan winkelmand
+      </button>
     </p>
   </div>
 </template>
@@ -34,8 +41,8 @@ export default {
   data() {
     return {
       isFavourite: false,
-      isEmployeeMenu: route().current().startsWith('employee.'),
-      isCustomerMenu: route().current().startsWith('customer.'),
+      isEmployeeMenu: route().current().startsWith("employee."),
+      isCustomerMenu: route().current().startsWith("customer."),
     };
   },
   created() {
