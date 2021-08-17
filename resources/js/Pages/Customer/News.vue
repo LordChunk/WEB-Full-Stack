@@ -1,15 +1,18 @@
 <template>
-  <h1>This is one sick news page bro</h1>
+  <news-item />
 </template>
 
 <script>
 import Layout from '@/Shared/CustomerLayout.vue'
+import NewsItem from '@/Components/NewsItem'
 
 export default {
+  components: {NewsItem},
   layout: Layout,
+  NewsItem: NewsItem,
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>
