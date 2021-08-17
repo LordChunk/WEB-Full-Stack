@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="content content-background">
     <p>
       De Gouden Draak is eenvoudig te vinden, vlak bij het centrum, 5 minuten lopen achter het centraal station.
     </p>
@@ -27,10 +27,6 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-p {
-  color: yellow;
 }
 
 @media only screen and (min-width: 600px) {
