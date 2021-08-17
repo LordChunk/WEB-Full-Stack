@@ -20,6 +20,8 @@ Route::name('customer.')->group(function () {
     Route::get('/menu', [CustomerController::class, 'ShowMenu'])->name('menu');
     Route::get('/news', [CustomerController::class, 'news'])->name('news');
     Route::get('/about', [CustomerController::class, 'about'])->name('about');
+    Route::get('/discount', [CustomerController::class, 'discount'])->name('discount');
+    Route::get('/studentdiscount', [CustomerController::class, 'studentdiscount'])->name('studentdiscount');
 });
 
 Route::name('employee.')->middleware(['auth'])->group(function () {

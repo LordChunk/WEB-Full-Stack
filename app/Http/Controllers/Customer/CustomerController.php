@@ -24,6 +24,16 @@ class CustomerController extends Controller
         return Inertia::render('Customer/News');
     }
 
+    public function discount()
+    {
+        return Inertia::render('Customer/Discount');
+    }
+
+    public function studentDiscount()
+    {
+        return Inertia::render('Customer/StudentDiscount');
+    }
+
     /**
      * Display a listing of the resource.
      *
