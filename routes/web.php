@@ -27,6 +27,7 @@ Route::name('employee.')->middleware(['auth'])->group(function () {
     Route::get('/employee/menu', [EmployeeController::class, 'menu'])->name('menu');
     Route::get('/employee/order', [EmployeeController::class, 'order'])->name('order');
     Route::post('/employee/order/confirm', [EmployeeController::class, 'orderConfirm'])->name('order.confirm');
+    Route::get('/employee/sales', [EmployeeController::class, 'sales'])->name('sales');
 });
 
 require __DIR__.'/auth.php';
