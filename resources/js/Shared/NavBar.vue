@@ -51,7 +51,20 @@
 export default {
   computed: {
     navItems() {
-      return this.$page.props.nav.items;
+      return [
+        {
+          name: 'Dashboard',
+          url: route('employee.dashboard'),
+        },
+        {
+          name: 'Menu',
+          url: route('employee.menu'),
+        },
+        {
+          name: 'Verkoop overzicht',
+          url: route('employee.sales'),
+        },
+      ];
     },
   },
   data() {
