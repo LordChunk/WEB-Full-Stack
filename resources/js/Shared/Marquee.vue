@@ -1,9 +1,12 @@
 <template>
   <div class="marquee">
-    <div>
-      <slot></slot>
-    </div>
-  </div>
+    <a href="discount">
+      <div>
+        <slot></slot>
+      </div>
+    </a>
+</div>
+
 </template>
 
 <script>
@@ -27,6 +30,12 @@ export default {};
     padding: 0;
   }
 }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 @keyframes scroll-left {
   0% {
     transform: translateX(100%);

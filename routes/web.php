@@ -23,6 +23,8 @@ Route::name('customer.')->group(function () {
     Route::get('/order', [CustomerController::class, 'order'])->name('order');
     Route::post('/order/confirm', [CustomerController::class, 'orderConfirm'])->name('order.confirm');
 
+    Route::get('/discount', [CustomerController::class, 'discount'])->name('discount');
+    Route::get('/studentdiscount', [CustomerController::class, 'studentdiscount'])->name('studentdiscount');
 });
 
 Route::name('employee.')->middleware(['auth'])->group(function () {
