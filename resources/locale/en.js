@@ -15,6 +15,7 @@ const en = {
     quantity: "Quantity",
     price: "Price",
     dish: "Dish",
+    tableNumber: "table number",
   },
   cart: {
     clear: "Empty basket",
@@ -38,9 +39,15 @@ const en = {
   shared: {
     confirmOrder: {
       title: "Confirm your order",
-      yourTableNumber: "Your table number",
+      yourTableNumber: "Your @:generic.tableNumber",
       incorrectTableNumber: "Your table number is incorrect",
       confirm: "Confirm @:generic.checkout"
+    },
+    orderSuccess: {
+      title: "Your order has been placed",
+      thankYou: "Thank you for your order",
+      tableNumber: "Your table number is",
+      returnToMenu: "Return to menu",
     }
   }
 }

@@ -15,6 +15,7 @@ const nl = {
     quantity: "Hoeveelheid",
     price: "Prijs",
     dish: "Gerecht",
+    tableNumber: "Tafelnummer",
   },
   cart: {
     clear: "Winkelmand legen",
@@ -41,6 +42,12 @@ const nl = {
       yourTableNumber: "Uw tafelnummer",
       incorrectTableNumber: "Uw tafelnummer is niet correct",
       confirm: "Bevestig Bestelling",
+    },
+    orderSuccess: {
+      title: "Uw bestelling is geplaatst",
+      thankYou: "Bedankt voor uw bestelling",
+      tableNumber: "Uw tafelnummer is",
+      returnToMenu: "Terug naar menu",
     }
   }
 }

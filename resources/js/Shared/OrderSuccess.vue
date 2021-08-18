@@ -4,12 +4,12 @@
       <div class="col-md-8 col-md-offset-2">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title">Uw bestelling is geplaatst #{{ orderId }}</h3>
-            <p v-if="tableNumber !== undefined">Tafelnummer: {{tableNumber}}</p>
+            <h3 class="panel-title">{{$t("shared.orderSuccess.title")}} #{{ orderId }}</h3>
+            <p v-if="tableNumber !== undefined">{{$t('shared.orderSuccess.tableNumber')}}: {{tableNumber}}</p>
           </div>
           <div class="panel-body">
-            <p>Bedankt voor uw bestelling.</p>
-            <inertia-link :href="route('employee.menu')">Ga terug naar het menu</inertia-link>
+            <p>{{$t('shared.orderSuccess.thankYou')}}.</p>
+            <inertia-link :href="route('employee.menu')">{{$t('shared.orderSuccess.returnToMenu')}}</inertia-link>
           </div>
         </div>
       </div>
