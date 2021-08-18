@@ -24,7 +24,9 @@ const en = {
     email: "Email",
     password: "Password",
   },
-
+  about: {
+    paragraph1: "De Gouden Draak is easy to find, close to the center, a 5-minute walk behind the central station."
+  },
 }
 
 export default en;

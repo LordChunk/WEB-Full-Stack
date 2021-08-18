@@ -24,6 +24,9 @@ const nl = {
     email: "Email",
     password: "Wachtwoord",
   },
+  about: {
+    paragraph1: "De Gouden Draak is eenvoudig te vinden, vlakbij het centrum, 5 minuten lopen achter het centraal station.",
+  },
 }
 
 export default nl;
