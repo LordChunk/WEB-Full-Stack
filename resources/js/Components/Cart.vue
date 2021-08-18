@@ -10,9 +10,9 @@
       <img src="/images/drag_handle_black_24dp.svg" />
     </div>
     <div class="cart-header">
-      <h2>Winkelmand</h2>
+      <h2>{{ $t("generic.cart") }}</h2>
       <button class="btn btn-outline-danger" @click="clearOrder()">
-        Winkelmand legen
+        {{ $t("cart.clear") }}
       </button>
     </div>
     <div>
@@ -24,17 +24,17 @@
           <span> {{ dish.name }} </span>
         </div>
         <div class="price-wrapper">
-          <span> {{ $formatPrice(dish.price) }} per stuk </span>
+          <span> {{ $formatPrice(dish.price) }} {{ $t('cart.perPiece') }} </span>
           <strong>
-            {{ $formatPrice(dish.price * dish.quantity) }} totaal
+            {{ $formatPrice(dish.price * dish.quantity) }} {{ $t("generic.total") }}
           </strong>
         </div>
       </div>
       <div class="checkout-wrapper">
         <strong>
-          Totaalprijs: {{ $formatPrice($order.getTotalPrice()) }}
+          {{ $t('generic.total') }}: {{ $formatPrice($order.getTotalPrice()) }}
         </strong>
-        <inertia-link class="btn btn-success" :href="route($env.current()+'.order')">Afrekenen</inertia-link>
+        <inertia-link class="btn btn-success" :href="route($env.current()+'.order')">{{$t('generic.checkout')}}</inertia-link>
       </div>
     </div>
   </div>
@@ -158,6 +158,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   margin: 1rem 0;
+  text-transform: capitalize;
 }
 
 .open-cart {
