@@ -16,6 +16,7 @@ export default {
     },
     searchTerm: {
       type: String,
+      default: "",
     },
   },
   components: {
