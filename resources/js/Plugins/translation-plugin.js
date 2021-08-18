@@ -4,8 +4,8 @@ import nl from "../../locale/nl";
 
 
 const i18n = createI18n({
-  locale: 'nl', // set locale
-  fallbackLocale: 'en', // set fallback locale
+  locale: 'en', // set locale
+  fallbackLocale: 'nl', // set fallback locale
   messages: {en,nl},
 })
 

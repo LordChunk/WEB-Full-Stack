@@ -18,14 +18,14 @@
         @click="$order.add(dish)"
         class="btn btn-outline-info"
       >
-        Voeg toe aan winkelmand
+        {{$t("dish.addToCart")}}
       </button>
       <button
         v-if="$env.isCustomer()"
         @click="$order.add(dish)"
         class="btn btn-light right"
       >
-        Voeg toe aan winkelmand
+        {{$t("dish.addToCart")}}
       </button>
     </p>
   </div>
