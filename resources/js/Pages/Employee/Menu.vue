@@ -4,10 +4,19 @@
       <div class="menu-header">
         <h2>Menukaart</h2>
       </div>
+      <div class="mt-4 mb-4">
+        <label for="menu-search-bar" class="form-label">
+          Zoek naar gerechten
+        </label>
+        <div class="input-group">
+          <input id="menu-search-bar" type="text" v-model="searchTerm" />
+        </div>
+      </div>
       <dish-type
         v-for="dishType in dishTypes"
         :key="dishType.name"
         :dishType="dishType"
+        :searchTerm="searchTerm"
       >
       </dish-type>
     </div>
@@ -68,6 +77,11 @@ export default {
       ],
       required: true,
     },
+  },
+  data() {
+    return {
+      searchTerm: "",
+    };
   },
 };
 </script>

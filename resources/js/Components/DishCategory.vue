@@ -1,8 +1,8 @@
 <template>
-  <div class="container">
+  <div class="container" v-if="filteredDishes.length !== 0">
     <h2>{{ dishType.name }}</h2>
     <!-- Generate div for each dish -->
-    <dish v-for="dish in dishType.dishes" :key="dish.id" :dish="dish">
+    <dish v-for="dish in filteredDishes" :key="dish.id" :dish="dish">
     </dish>
   </div>
 </template>
@@ -14,9 +14,24 @@ export default {
     dishType: {
       type: Object,
     },
+    searchTerm: {
+      type: String,
+    },
   },
   components: {
     Dish,
+  },
+  computed: {
+    filteredDishes() {
+      return this.dishType.dishes.filter((dish) => {
+        // Filter based on name, description and menu indicator
+        return (
+          dish.name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+          dish.description?.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+          dish.menu_indicator.toLowerCase().includes(this.searchTerm.toLowerCase())
+        );
+      });
+    },
   },
 };
 </script>
