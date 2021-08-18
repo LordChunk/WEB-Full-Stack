@@ -10,6 +10,7 @@ import AuthPlugin from '@/Plugins/auth-plugin';
 import TranslationPlugin from '@/Plugins/translation-plugin.js';
 import PriceFormattingPlugin from '@/Plugins/price-formatting-plugin';
 import OrderPlugin from '@/Plugins/order-plugin';
+import EnvironmentPlugin from '@/Plugins/environment-plugin';
 
 // Inertia lnk
 import { InertiaLink } from '@inertiajs/inertia-vue3'
@@ -26,6 +27,7 @@ createInertiaApp({
             .use(TranslationPlugin)
             .use(PriceFormattingPlugin)
             .use(OrderPlugin)
+            .use(EnvironmentPlugin)
             .component('inertia-link', InertiaLink)
             .mount(el)
     },

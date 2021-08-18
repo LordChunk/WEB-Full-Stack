@@ -6,7 +6,7 @@
       :dishType="dishType"
     />
   </div>
-  <cart></cart>
+  <cart/>
 </template>
 
 <script>

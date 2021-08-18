@@ -33,4 +33,15 @@ class CustomerController extends Controller
     {
         return Inertia::render('Customer/Menu', ['dishTypes' => DishType::GroupByType()]);
     }
+
+    public function order()
+    {
+        return Inertia::render('Customer/Order');
+    }
+
+    // POST /customer/order
+    public function orderConfirm() {
+        return Inertia::render('Customer/OrderConfirm');
+    }
+
 }
