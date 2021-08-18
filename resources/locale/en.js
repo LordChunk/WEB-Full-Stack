@@ -1,16 +1,17 @@
 const en = {
   message: {
     advertisement: 'Sick adds here bro',
-    restaurantName: 'The Golden dragon',
+    restaurantName: '@:generic.name',
     specialties: 'Chinese Indian Specialties',
     WelcomeMessage: 'Hello there, General Kenobi',
-    news: 'Because of the Corona crisis, The Golden Dragon has changed its opening and closing hours.\n' +
+    news: 'Because of the Corona crisis, @:generic.name has changed its opening and closing hours.\n' +
       'The restaurant part is closed. You can still order take away.',
   },
   generic: {
     cart: "Cart",
     checkout: "Checkout",
     total: "total",
+    name: "The Golden Dragon"
   },
   cart: {
     clear: "Empty basket",
@@ -25,8 +26,12 @@ const en = {
     password: "Password",
   },
   about: {
-    paragraph1: "De Gouden Draak is easy to find, close to the center, a 5-minute walk behind the central station."
+    paragraph1: "@:generic.name is easy to find, close to the center, a 5-minute walk behind the central station."
   },
+  home: {
+    paragraph1: "For years, @:generic.name has been a household name when it comes to the best takeaway dishes in 's-Hertogenbosch. We are happy to treat you to authentic dishes from the Cantonese cuisine.",
+    studentDiscount: "View the Special Student Offers here!"
+  }
 }
 
 export default en;

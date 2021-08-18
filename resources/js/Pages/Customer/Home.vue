@@ -2,11 +2,10 @@
   <div class="content-background">
     <h1>{{ $t("message.WelcomeMessage") }}</h1>
     <p>
-      Al jaren is De Gouden Draak een begrip als het gaat om de beste afhaalgerechten in 's-Hertogenbosch.
-      Graag trakteren we u op authentieke gerechten uit de Cantonese keuken.
+      {{ $t("home.paragraph1") }}
     </p>
-    <a href="studentdiscount">
-      Bekijk hier de Speciale Studentenaanbiedingen!
+    <a href="/studentdiscount">
+      {{ $t("home.studentDiscount") }}
     </a>
   </div>
 </template>
