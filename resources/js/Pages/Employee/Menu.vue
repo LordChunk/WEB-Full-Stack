@@ -11,6 +11,10 @@
         <div class="input-group">
           <input id="menu-search-bar" type="text" v-model="searchTerm" />
         </div>
+
+        <p>
+          U kunt zoeken op naam, categorie, beschrijving of menunummer.
+        </p>
       </div>
       <dish-type
         v-for="dishType in dishTypes"

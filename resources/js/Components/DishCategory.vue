@@ -23,6 +23,11 @@ export default {
   },
   computed: {
     filteredDishes() {
+      // Check if search term matches with dishType name
+      if (this.dishType.name.toLowerCase().includes(this.searchTerm.toLowerCase())) {
+        return this.dishType.dishes;
+      }
+
       return this.dishType.dishes.filter((dish) => {
         // Filter based on name, description and menu indicator
         return (
