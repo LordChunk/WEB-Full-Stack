@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Customer;
 use Inertia\Inertia;
 use App\Models\DishType;
 use App\Http\Controllers\Controller;
-
+use App\Models\Order;
+use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
@@ -43,4 +44,28 @@ class CustomerController extends Controller
     {
         return Inertia::render('Customer/Menu', ['dishTypes' => DishType::GroupByType()]);
     }
+
+    public function order()
+    {
+        return Inertia::render('Customer/Order');
+    }
+
+    // POST /customer/order
+    public function orderConfirm(Request $request) {
+        $this->validate($request, [
+            'table_number' => 'required|integer',
+            'dishes' => 'required|array',
+        ]);
+
+        $dishes = $request->input('dishes');
+        $tableNumber = $request->input('table_number');
+
+        $order = Order::CreateNewOrder(null, $tableNumber, $dishes);
+
+        return Inertia::render('Customer/OrderSuccess', [
+            'orderId' => $order->id,
+            'tableNumber' => $order->table_number,
+        ]);
+    }
+
 }

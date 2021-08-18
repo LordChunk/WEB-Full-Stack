@@ -34,7 +34,7 @@
         <strong>
           Totaalprijs: {{ $formatPrice($order.getTotalPrice()) }}
         </strong>
-        <inertia-link class="btn btn-success" :href="route('employee.order')">Afrekenen</inertia-link>
+        <inertia-link class="btn btn-success" :href="route($env.current()+'.order')">Afrekenen</inertia-link>
       </div>
     </div>
   </div>

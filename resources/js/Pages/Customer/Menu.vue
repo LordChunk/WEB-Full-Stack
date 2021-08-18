@@ -4,14 +4,15 @@
       v-for="dishType in dishTypes"
       :key="dishType.name"
       :dishType="dishType"
-    >
-    </dish-type>
+    />
   </div>
+  <cart/>
 </template>
 
 <script>
 import Layout from "@/Shared/CustomerLayout.vue";
 import DishType from "@/Components/DishCategory.vue";
+import Cart from "@/Components/Cart.vue";
 export default {
   layout: Layout,
   props: {
@@ -33,6 +34,7 @@ export default {
   },
   components: {
     DishType,
+    Cart,
   },
 };
 </script>
@@ -40,6 +42,11 @@ export default {
 <style scoped lang="scss">
 * {
   color: white;
+}
+.customer-menu {
+  @media (min-width: 768px) {
+    max-width: 40vw;
+  }
 }
 
 // Style all dish elements according to customer layout
@@ -56,6 +63,14 @@ export default {
   // Remove margin from last p tag
   p:last-child {
     margin: 0;
+  }
+}
+
+.cart {
+  background: darkred;
+  border: 1px solid yellow;
+  :deep(.cart-dish) {
+    color: black;
   }
 }
 </style>

@@ -20,6 +20,9 @@ Route::name('customer.')->group(function () {
     Route::get('/menu', [CustomerController::class, 'ShowMenu'])->name('menu');
     Route::get('/news', [CustomerController::class, 'news'])->name('news');
     Route::get('/about', [CustomerController::class, 'about'])->name('about');
+    Route::get('/order', [CustomerController::class, 'order'])->name('order');
+    Route::post('/order/confirm', [CustomerController::class, 'orderConfirm'])->name('order.confirm');
+
     Route::get('/discount', [CustomerController::class, 'discount'])->name('discount');
     Route::get('/studentdiscount', [CustomerController::class, 'studentdiscount'])->name('studentdiscount');
 });

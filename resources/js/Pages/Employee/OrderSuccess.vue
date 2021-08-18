@@ -1,26 +1,16 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Uw bestelling is geplaatst #{{ orderId }}</h3>
-          </div>
-          <div class="panel-body">
-            <p>Bedankt voor uw bestelling.</p>
-            <inertia-link :href="route('employee.menu')">Ga terug naar het menu</inertia-link>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <order-success :orderId="orderId" />
 </template>
 
 <script>
 import layout from '@/Shared/BootstrapLayout.vue';
+import OrderSuccess from '@/Shared/OrderSuccess.vue';
 
 export default {
   layout,
+  components: {
+    OrderSuccess,
+  },
   props: {
     orderId: {
       type: Number,

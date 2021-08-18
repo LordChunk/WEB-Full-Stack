@@ -17,7 +17,6 @@
             <header-logo class="hidden-mobile" />
           </div>
         </div>
-
         <nav>
           <nav-bar></nav-bar>
         </nav>
@@ -65,5 +64,6 @@ nav {
 }
 .container {
   background: red;
+  min-height: calc(100vh - 1em);
 }
 </style>
