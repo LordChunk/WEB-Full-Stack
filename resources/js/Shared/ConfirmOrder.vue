@@ -10,6 +10,11 @@
       </template>
     </div>
 
+    <div v-if="$env.isCustomer()" class="table-nubmer mt-4">
+      <span>Uw tafelnummer: </span>
+      <input type="number" v-model="table_number" />
+      <strong v-if="table_warn"> Tafelnummer is niet correct</strong>
+    </div>
     <div class="checkout-wrapper">
       <strong> Totaalprijs: {{ $formatPrice($order.getTotalPrice()) }} </strong>
       <button class="btn btn-success" @click="confirmOrder()">Bestellen</button>
@@ -21,11 +26,25 @@
 import { Inertia } from "@inertiajs/inertia";
 
 export default {
+  data() {
+    return {
+      table_number: 0,
+      table_warn: false
+    };
+  },
   methods: {
     confirmOrder() {
+      if (this.table_number == 0 && this.$env.isCustomer()) {
+        this.table_warn = true;
+        return;
+      }
+
       Inertia.post(
         route(this.$env.current() + ".order.confirm"),
-        this.$order.content,
+        {
+          table_number: this.table_number === 0 ? null : this.table_number,
+          dishes: this.$order.content,
+        },
         {
           onSuccess: () => {
             this.$order.clear();

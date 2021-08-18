@@ -6,7 +6,7 @@
 
 <script>
 import layout from "@/Shared/CustomerLayout.vue";
-import ConfirmOrder from '@/Components/ConfirmOrder.vue';
+import ConfirmOrder from '@/Shared/ConfirmOrder.vue';
 
 export default {
   layout,

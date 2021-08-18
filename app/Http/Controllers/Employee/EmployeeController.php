@@ -31,31 +31,9 @@ class EmployeeController extends Controller
     public function OrderConfirm(Request $request)
     {
         $userId = auth()->user()->getAuthIdentifier();
-        $dishes = $request->all();
+        $dishes = $request->input('dishes');
 
-        // Get multiply quantity of each dish and add it to the order
-        $price = 0;
-        foreach ($dishes as $dish) {
-            $dishPrice = Dish::find($dish['id'])->price;
-            $price += $dish['quantity'] * $dishPrice;
-            $dish['price'] = $dishPrice;
-        }
-
-        $order = Order::create([
-            "user_id" => $userId,
-            "price" => $price,
-        ]);
-
-        // Add dishes to the order
-        foreach ($dishes as $dish) {
-            $order->dishes()->attach(
-                $dish['id'],
-                [
-                    'quantity' => $dish['quantity'],
-                    'price' => $dish['price'],
-                ]
-            );
-        }
+        $order = Order::CreateNewOrder($userId, null, $dishes);
 
         return Inertia::render('Employee/OrderSuccess', [
             'orderId' => $order->id,

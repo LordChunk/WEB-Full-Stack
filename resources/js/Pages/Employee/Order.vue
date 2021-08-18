@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import ConfirmOrder from "@/Components/ConfirmOrder.vue";
+import ConfirmOrder from "@/Shared/ConfirmOrder.vue";
 import layout from "@/Shared/BootstrapLayout.vue";
 import { Inertia } from "@inertiajs/inertia";
 
