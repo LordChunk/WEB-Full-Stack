@@ -1,7 +1,14 @@
 <template>
-  <h1 class="mb-4">Bestelling bevestingen</h1>
+  <h1 class="mb-4">{{$t("shared.confirmOrder.title")}}</h1>
   <div>
     <div class="order-contents">
+      <!-- Table headers -->
+      <span>{{$t("generic.quantity")}}</span>
+      <span>{{$t("generic.dish")}}</span>
+      <span>{{$t("generic.price")}}</span>
+      <span class="text-capitalize">{{$t("generic.total")}}</span>
+
+      <!-- Table rows -->
       <template v-for="dish in $order.content" :key="dish.id">
         <span>{{ dish.quantity }}x </span>
         <span> {{ dish.name }} </span>
@@ -11,13 +18,13 @@
     </div>
 
     <div v-if="$env.isCustomer()" class="table-nubmer mt-4">
-      <span>Uw tafelnummer: </span>
-      <input type="number" v-model="table_number" />
-      <strong v-if="table_warn"> Tafelnummer is niet correct</strong>
+      <span>{{ $t('shared.confirmOrder.yourTableNumber')}}: </span>
+      <input type="number" v-model="table_number" class="m-2" />
+      <strong v-if="table_warn"> {{$t('shared.confirmOrder.incorrectTableNumber')}}</strong>
     </div>
     <div class="checkout-wrapper">
-      <strong> Totaalprijs: {{ $formatPrice($order.getTotalPrice()) }} </strong>
-      <button class="btn btn-success" @click="confirmOrder()">Bestellen</button>
+      <strong class="text-capitalize"> {{$t('generic.total')}}: {{ $formatPrice($order.getTotalPrice()) }} </strong>
+      <button class="btn btn-success" @click="confirmOrder()">{{$t('shared.confirmOrder.confirm')}}</button>
     </div>
   </div>
 </template>

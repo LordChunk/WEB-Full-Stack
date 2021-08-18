@@ -11,7 +11,10 @@ const en = {
     cart: "Cart",
     checkout: "Checkout",
     total: "total",
-    name: "The Golden Dragon"
+    name: "The Golden Dragon",
+    quantity: "Quantity",
+    price: "Price",
+    dish: "Dish",
   },
   cart: {
     clear: "Empty basket",
@@ -31,6 +34,14 @@ const en = {
   home: {
     paragraph1: "For years, @:generic.name has been a household name when it comes to the best takeaway dishes in 's-Hertogenbosch. We are happy to treat you to authentic dishes from the Cantonese cuisine.",
     studentDiscount: "View the Special Student Offers here!"
+  },
+  shared: {
+    confirmOrder: {
+      title: "Confirm your order",
+      yourTableNumber: "Your table number",
+      incorrectTableNumber: "Your table number is incorrect",
+      confirm: "Confirm @:generic.checkout"
+    }
   }
 }
 

@@ -11,7 +11,10 @@ const nl = {
     cart: "Winkelmand",
     checkout: "Afrekenen",
     total: "totaal",
-    name: "De Gouden Draak"
+    name: "De Gouden Draak",
+    quantity: "Hoeveelheid",
+    price: "Prijs",
+    dish: "Gerecht",
   },
   cart: {
     clear: "Winkelmand legen",
@@ -31,6 +34,14 @@ const nl = {
   home: {
     paragraph1: "Al jaren is @:generic.name een begrip als het gaat om de beste afhaalgerechten in 's-Hertogenbosch. Graag trakteren we u op authentieke gerechten uit de Cantonese keuken.",
     studentDiscount: "Bekijk hier de Speciale Studentenaanbiedingen!"
+  },
+  shared: {
+    confirmOrder: {
+      title: "Bestelling bevestigen",
+      yourTableNumber: "Uw tafelnummer",
+      incorrectTableNumber: "Uw tafelnummer is niet correct",
+      confirm: "Bevestig Bestelling",
+    }
   }
 }
 
