@@ -19,6 +19,11 @@ const nl = {
   dish: {
     addToCart: "Toevoegen aan winkelmand",
   },
+  auth: {
+    signIn: "Inloggen",
+    email: "Email",
+    password: "Wachtwoord",
+  },
 }
 
 export default nl;

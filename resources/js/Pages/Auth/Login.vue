@@ -1,20 +1,20 @@
 <template>
 <div class="login-wrapper">
   <div class="w-100">
-    <h1>Login</h1>
+    <h1>{{$t('auth.signIn')}}</h1>
     <form @submit.prevent="submit">
       <div class="form-group">
         <!-- Email -->
-        <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" v-model="form.email" placeholder="Email">
+        <label for="email">{{$t('auth.email')}}</label>
+        <input type="email" class="form-control" id="email" v-model="form.email" :placeholder="$t('auth.email')">
       </div>
       <div class="form-group">
         <!-- Password -->
-        <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" v-model="form.password" placeholder="Password">
+        <label for="password">{{$t('auth.password')}}</label>
+        <input type="password" class="form-control" id="password" v-model="form.password" :placeholder="$t('auth.password')">
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary">Sign in</button>
+        <button type="submit" class="btn btn-primary">{{$t('auth.signIn')}}</button>
       </div>
     </form>
   </div>

@@ -19,6 +19,12 @@ const en = {
   dish: {
     addToCart: "Add to cart",
   },
+  auth: {
+    signIn: "Sign in",
+    email: "Email",
+    password: "Password",
+  },
+
 }
 
 export default en;
