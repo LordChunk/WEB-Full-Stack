@@ -1,10 +1,11 @@
 <template>
   <div>
-    <select v-model="$i18n.locale">
+    <select @change="changeLocale" v-model="this.$i18n.locale">
       <option
         v-for="(lang, i) in langs"
         :key="`lang-${i}`"
-        :value="lang">
+        :value="lang"
+        >
         {{ lang }}
       </option>
     </select>
@@ -15,7 +16,16 @@
 export default {
   name: 'SwitchLocale',
   data() {
-    return { langs: ['en', 'nl'] }
+    return {
+      langs: ['en', 'nl'],
+      }
+  },
+  methods: {
+    changeLocale(event) {
+      const newLocale = event.target.value;
+      this.$i18n.locale = newLocale;
+      localStorage.setItem('locale', newLocale);
+    }
   }
 }
 </script>
