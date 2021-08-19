@@ -39,7 +39,9 @@ Route::name('employee.')->middleware(['auth'])->group(function () {
     // Place order
     Route::post('/employee/order/confirm', [EmployeeController::class, 'orderConfirm'])->name('order.confirm');
     // Update allergies
-    Route::post('/employee/menu/update', [EmployeeController::class, 'updateAllergies'])->name('menu.update.allergies');
+    Route::post('/employee/menu/update/allergies', [EmployeeController::class, 'updateAllergies'])->name('menu.update.allergies');
+    // Update spiciness
+    Route::post('/employee/menu/update/spiciness', [EmployeeController::class, 'updateSpiciness'])->name('menu.update.spiciness');
 });
 
 require __DIR__.'/auth.php';

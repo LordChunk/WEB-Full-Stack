@@ -91,4 +91,14 @@ class EmployeeController extends Controller
         // Bit of a hack to allow the use of Inertia.post in Vue without a redirect
         return redirect()->back();
     }
+
+    // POST
+    public function updateSpiciness(Request $request) {
+        $dish = Dish::find($request->input('dishId'));
+        $dish->spiciness = $request->input('spiciness');
+        $dish->save();
+
+        // Bit of a hack to allow the use of Inertia.post in Vue without a redirect
+        return redirect()->back();
+    }
 }

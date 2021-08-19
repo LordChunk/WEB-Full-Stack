@@ -46,7 +46,20 @@
       </template>
     </p>
 
-    <p>Pittigheid: {{ dish.spiciness }}</p>
+    <p>
+      Niet pittig
+      <input
+        type="range"
+        min="0"
+        max="3"
+        v-model="dish.spiciness"
+        :disabled="$env.isCustomer()"
+      />
+      Zeer Pittig
+    </p>
+    <button v-if="$env.isEmployee()" @click="updateSpiciness()" class="btn btn-outline-secondary mb-3">
+      Update pittigheid
+    </button>
 
     <!-- Add to basket -->
     <p>
@@ -115,13 +128,27 @@ export default {
     },
     updateAllergies() {
       Inertia.post(
-        route("employee.menu.update.allergies"), {
-        dishId: this.dish.id,
-        allergies: this.dish.allergies,
-      },
-      {
-        preserveScroll: true, // This prevents a scroll back to the top of the page
-      });
+        route("employee.menu.update.allergies"),
+        {
+          dishId: this.dish.id,
+          allergies: this.dish.allergies,
+        },
+        {
+          preserveScroll: true, // This prevents a scroll back to the top of the page
+        }
+      );
+    },
+    updateSpiciness() {
+      Inertia.post(
+        route("employee.menu.update.spiciness"),
+        {
+          dishId: this.dish.id,
+          spiciness: this.dish.spiciness,
+        },
+        {
+          preserveScroll: true, // This prevents a scroll back to the top of the page
+        }
+      );
     },
   },
 };
