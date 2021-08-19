@@ -16,16 +16,37 @@
 
     <p>
       Allergenen:
-      <template v-for="(allergy, $index) in dish.allergies" :key="allergy">
-        <!-- Add comma if not first item -->
-        <span v-if="$index > 0">, </span>
-        {{ allergy }}
+      <!-- Customer allergy ui -->
+      <template v-if="$env.isCustomer()">
+        <template v-for="(allergy, $index) in dish.allergies" :key="allergy">
+          <!-- Add comma if not first item -->
+          <span v-if="$index > 0">, </span>
+          {{ allergy }}
+        </template>
+      </template>
+      <!-- Admin allergy ui -->
+      <template v-else>
+        <!-- Create checkboxes for all allergies -->
+        <div v-for="allergy in allAllergies" :key="allergy">
+          <input
+            type="checkbox"
+            :id="dish.id + '-' + allergy.id"
+            :value="allergy.name"
+            v-model="dish.allergies"
+          />
+          <label class="p-1" :for="dish.id + '-' + allergy.id">{{
+            allergy.name
+          }}</label>
+        </div>
+
+        <!-- Submit allergy changes -->
+        <button @click="updateAllergies()" class="btn btn-outline-secondary">
+          Update allergieën
+        </button>
       </template>
     </p>
 
-    <p>
-      Pittigheid: {{ dish.spiciness }}
-    </p>
+    <p>Pittigheid: {{ dish.spiciness }}</p>
 
     <!-- Add to basket -->
     <p>
@@ -48,10 +69,15 @@
 </template>
 
 <script>
+import { Inertia } from "@inertiajs/inertia";
 export default {
   props: {
     dish: {
       type: Object,
+      required: true,
+    },
+    allAllergies: {
+      type: Array,
     },
   },
   data() {
@@ -61,7 +87,6 @@ export default {
   },
   created() {
     this.isFavourite = this.isDishFavorited(this.dish);
-    console.log(this.dish);
   },
   methods: {
     toggleFavorite(dish) {
@@ -87,6 +112,16 @@ export default {
       const favourites = JSON.parse(localStorage.getItem("favorites") || "[]");
       // Check if new dish is already favorited
       return favourites.find((fav) => fav.id === dish.id);
+    },
+    updateAllergies() {
+      Inertia.post(
+        route("employee.menu.update.allergies"), {
+        dishId: this.dish.id,
+        allergies: this.dish.allergies,
+      },
+      {
+        preserveScroll: true,
+      });
     },
   },
 };

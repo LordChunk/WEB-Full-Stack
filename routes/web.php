@@ -21,18 +21,25 @@ Route::name('customer.')->group(function () {
     Route::get('/news', [CustomerController::class, 'news'])->name('news');
     Route::get('/about', [CustomerController::class, 'about'])->name('about');
     Route::get('/order', [CustomerController::class, 'order'])->name('order');
-    Route::post('/order/confirm', [CustomerController::class, 'orderConfirm'])->name('order.confirm');
-
     Route::get('/discount', [CustomerController::class, 'discount'])->name('discount');
     Route::get('/studentdiscount', [CustomerController::class, 'studentdiscount'])->name('studentdiscount');
+
+    // Place order
+    Route::post('/order/confirm', [CustomerController::class, 'orderConfirm'])->name('order.confirm');
+
+
 });
 
 Route::name('employee.')->middleware(['auth'])->group(function () {
     Route::get('/dashboard', [EmployeeController::class, 'index'])->name('dashboard');
     Route::get('/employee/menu', [EmployeeController::class, 'menu'])->name('menu');
     Route::get('/employee/order', [EmployeeController::class, 'order'])->name('order');
-    Route::post('/employee/order/confirm', [EmployeeController::class, 'orderConfirm'])->name('order.confirm');
     Route::get('/employee/sales', [EmployeeController::class, 'sales'])->name('sales');
+
+    // Place order
+    Route::post('/employee/order/confirm', [EmployeeController::class, 'orderConfirm'])->name('order.confirm');
+    // Update allergies
+    Route::post('/employee/menu/update', [EmployeeController::class, 'updateAllergies'])->name('menu.update.allergies');
 });
 
 require __DIR__.'/auth.php';
