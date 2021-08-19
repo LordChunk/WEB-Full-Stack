@@ -30,7 +30,7 @@ const en = {
     password: "Password",
   },
   about: {
-    paragraph1: "@:generic.name is easy to find, close to the center, a 5-minute walk behind the central station."
+    paragraph1: "@:generic.name is easy to find, close to the city center, a 5-minute walk behind the central station."
   },
   home: {
     paragraph1: "For years, @:generic.name has been a household name when it comes to the best takeaway dishes in 's-Hertogenbosch. We are happy to treat you to authentic dishes from the Cantonese cuisine.",
