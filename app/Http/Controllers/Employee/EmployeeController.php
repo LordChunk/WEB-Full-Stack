@@ -3,13 +3,15 @@
 namespace App\Http\Controllers\Employee;
 
 use App\Models\Dish;
+use App\Models\Role;
+use App\Models\User;
 use Inertia\Inertia;
 use App\Models\Order;
+use App\Models\Allergy;
 use App\Models\DishType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Models\Allergy;
 
 class EmployeeController extends Controller
 {
@@ -97,6 +99,24 @@ class EmployeeController extends Controller
         $dish = Dish::find($request->input('dishId'));
         $dish->spiciness = $request->input('spiciness');
         $dish->save();
+
+        // Bit of a hack to allow the use of Inertia.post in Vue without a redirect
+        return redirect()->back();
+    }
+
+    // GET
+    public function users() {
+        return Inertia::render('Employee/User', [
+            'users' => User::with('role')->get(),
+            'roles' => Role::all(),
+        ]);
+    }
+
+    // POST
+    public function updateUserRole(Request $request) {
+        $user = User::find($request->input('userId'));
+        $user->role_id = $request->input('roleId');
+        $user->save();
 
         // Bit of a hack to allow the use of Inertia.post in Vue without a redirect
         return redirect()->back();
