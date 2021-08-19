@@ -2,7 +2,7 @@
   <div class="container" v-if="filteredDishes.length !== 0">
     <h2>{{ dishType.name }}</h2>
     <!-- Generate div for each dish -->
-    <dish v-for="dish in filteredDishes" :key="dish.id" :dish="dish">
+    <dish v-for="dish in filteredDishes" :key="dish.id" :dish="dish" :allAllergies="allAllergies">
     </dish>
   </div>
 </template>
@@ -17,6 +17,9 @@ export default {
     searchTerm: {
       type: String,
       default: "",
+    },
+    allAllergies: {
+      type: Array,
     },
   },
   components: {

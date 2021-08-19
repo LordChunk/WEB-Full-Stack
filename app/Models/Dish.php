@@ -16,6 +16,7 @@ class Dish extends Model
         'menu_indicator',
         'name',
         'price',
+        'spiciness',
     ];
 
     public function type(): BelongsTo
@@ -31,5 +32,9 @@ class Dish extends Model
     public function orders() {
         return $this->belongsToMany(Order::class)
             ->withPivot(['quantity', 'price']);
+    }
+
+    public function allergies() {
+        return $this->belongsToMany(Allergy::class);
     }
 }
