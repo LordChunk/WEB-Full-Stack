@@ -11,21 +11,33 @@
     </div>
 
     <p v-if="dish.description">{{ dish.description }}</p>
+
     <p class="dish-price">{{ $formatPrice(dish.price) }}</p>
+
+    <p>
+      Allergenen:
+      <template v-for="(allergy, $index) in dish.allergies" :key="allergy">
+        <!-- Add comma if not first item -->
+        <span v-if="$index > 0">, </span>
+        {{ allergy }}
+      </template>
+    </p>
+
+    <!-- Add to basket -->
     <p>
       <button
         v-if="$env.isEmployee()"
         @click="$order.add(dish)"
         class="btn btn-outline-info"
       >
-        {{$t("dish.addToCart")}}
+        {{ $t("dish.addToCart") }}
       </button>
       <button
         v-if="$env.isCustomer()"
         @click="$order.add(dish)"
         class="btn btn-light right"
       >
-        {{$t("dish.addToCart")}}
+        {{ $t("dish.addToCart") }}
       </button>
     </p>
   </div>
@@ -45,6 +57,7 @@ export default {
   },
   created() {
     this.isFavourite = this.isDishFavorited(this.dish);
+    console.log(this.dish);
   },
   methods: {
     toggleFavorite(dish) {
