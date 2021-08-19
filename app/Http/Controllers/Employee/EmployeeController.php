@@ -88,6 +88,7 @@ class EmployeeController extends Controller
 
         $dish->allergies()->sync($allergyIds);
 
+        // Bit of a hack to allow the use of Inertia.post in Vue without a redirect
         return redirect()->back();
     }
 }

@@ -120,7 +120,7 @@ export default {
         allergies: this.dish.allergies,
       },
       {
-        preserveScroll: true,
+        preserveScroll: true, // This prevents a scroll back to the top of the page
       });
     },
   },
