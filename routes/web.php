@@ -26,8 +26,6 @@ Route::name('customer.')->group(function () {
 
     // Place order
     Route::post('/order/confirm', [CustomerController::class, 'orderConfirm'])->name('order.confirm');
-
-
 });
 
 Route::name('employee.')->middleware(['auth'])->group(function () {
@@ -35,6 +33,7 @@ Route::name('employee.')->middleware(['auth'])->group(function () {
     Route::get('/employee/menu', [EmployeeController::class, 'menu'])->name('menu');
     Route::get('/employee/order', [EmployeeController::class, 'order'])->name('order');
     Route::get('/employee/sales', [EmployeeController::class, 'sales'])->name('sales');
+    Route::get('/employee/users', [EmployeeController::class, 'users'])->name('users');
 
     // Place order
     Route::post('/employee/order/confirm', [EmployeeController::class, 'orderConfirm'])->name('order.confirm');
@@ -42,6 +41,9 @@ Route::name('employee.')->middleware(['auth'])->group(function () {
     Route::post('/employee/menu/update/allergies', [EmployeeController::class, 'updateAllergies'])->name('menu.update.allergies');
     // Update spiciness
     Route::post('/employee/menu/update/spiciness', [EmployeeController::class, 'updateSpiciness'])->name('menu.update.spiciness');
+
+    // Update user roles
+    Route::post('/employee/users/update/roles', [EmployeeController::class, 'updateUserRole'])->name('users.update.roles');
 });
 
 require __DIR__.'/auth.php';

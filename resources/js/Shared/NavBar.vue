@@ -64,6 +64,10 @@ export default {
           name: 'Verkoop overzicht',
           url: route('employee.sales'),
         },
+        {
+          name: 'Gebruikers',
+          url: route('employee.users'),
+        },
       ];
     },
   },
