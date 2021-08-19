@@ -57,7 +57,6 @@ export default {
   },
   created() {
     this.isFavourite = this.isDishFavorited(this.dish);
-    console.log(this.dish);
   },
   methods: {
     toggleFavorite(dish) {
