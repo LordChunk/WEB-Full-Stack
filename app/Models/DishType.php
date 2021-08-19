@@ -58,21 +58,10 @@ class DishType extends Model
         $returnValue->id = $dish->id;
         $returnValue->menu_indicator = $dish->menu_indicator;
         $returnValue->name = $dish->name;
+        $returnValue->description = $dish->description?->description;
         $returnValue->price = number_format($dish->price, 2, '.');
-
-        // Add description
-        if (isset($dish->description)) {
-            $returnValue->description = $dish->description->description;
-        } else {
-            $returnValue->description = null;
-        }
-
-        // Add dish type name
-        if (isset($dish->type)) {
-            $returnValue->dish_type = $dish->type->name;
-        } else {
-            $returnValue->dish_type = null;
-        }
+        $returnValue->spiciness = $dish->spiciness;
+        $returnValue->dish_type = $dish->type->name;
 
         // Add allergies
         if (isset($dish->allergies)) {

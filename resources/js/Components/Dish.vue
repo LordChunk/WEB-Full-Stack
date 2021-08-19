@@ -23,6 +23,10 @@
       </template>
     </p>
 
+    <p>
+      Pittigheid: {{ dish.spiciness }}
+    </p>
+
     <!-- Add to basket -->
     <p>
       <button
@@ -57,6 +61,7 @@ export default {
   },
   created() {
     this.isFavourite = this.isDishFavorited(this.dish);
+    console.log(this.dish);
   },
   methods: {
     toggleFavorite(dish) {

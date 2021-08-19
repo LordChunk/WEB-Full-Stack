@@ -29,6 +29,7 @@ class CreateNewMenu extends Migration
             $table->string('menu_indicator');
             $table->string('name');
             $table->double('price');
+            $table->unsignedInteger('spiciness')->default(0);
             $table->foreignId('dish_type_id')->nullable()->constrained('dish_types');
             $table->foreignId('description_id')->nullable()->constrained('dish_descriptions');
         });

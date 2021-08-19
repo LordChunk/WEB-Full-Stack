@@ -16,6 +16,7 @@ class Dish extends Model
         'menu_indicator',
         'name',
         'price',
+        'spiciness',
     ];
 
     public function type(): BelongsTo
