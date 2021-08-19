@@ -26,12 +26,11 @@ class AllergySeeder extends Seeder
             'name' => 'Varkensvlees',
         ]);
 
-        // Temporary
-        // Link allergies to dishes
-        $allergies = Allergy::all();
-        $dishes = Dish::all();
-        foreach ($dishes as $dish) {
-            $dish->allergies()->attach($allergies->random(rand(1, 3))->pluck('id'));
-        }
+        // Generate random allergies for each dish
+        // $allergies = Allergy::all();
+        // $dishes = Dish::all();
+        // foreach ($dishes as $dish) {
+        //     $dish->allergies()->attach($allergies->random(rand(1, 3))->pluck('id'));
+        // }
     }
 }
