@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Customer;
 
+use App\Models\Discount;
 use Inertia\Inertia;
 use App\Models\DishType;
 use App\Http\Controllers\Controller;
@@ -27,7 +28,13 @@ class CustomerController extends Controller
 
     public function discount()
     {
-        return Inertia::render('Customer/Discount');
+        $discounts = Discount::where('isStudentDiscount', false)
+            ->where('startDate','<=',date("Y-m-d"))
+            ->where('endDate','>',date("Y-m-d"))
+            ->with('dish')
+            ->get();
+        //dd($discounts);
+        return Inertia::render('Customer/Discount',['discounts' => $discounts]);
     }
 
     public function studentDiscount()

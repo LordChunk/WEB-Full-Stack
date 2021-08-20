@@ -7,13 +7,15 @@
       <span>{{$t("generic.dish")}}</span>
       <span>{{$t("generic.price")}}</span>
       <span class="text-capitalize">{{$t("generic.total")}}</span>
+      <span class="text-capitalize">Opmerking</span>
 
       <!-- Table rows -->
-      <template v-for="dish in $order.content" :key="dish.id">
+      <template v-for="(dish, $index) in $order.content" :key="dish.id">
         <span>{{ dish.quantity }}x </span>
         <span> {{ dish.name }} </span>
         <span> {{ $formatPrice(dish.price) }} </span>
         <strong> {{ $formatPrice(dish.price * dish.quantity) }} </strong>
+        <input v-model="$order.content[$index].comment">
       </template>
     </div>
 
@@ -66,7 +68,7 @@ export default {
 <style scoped lang="scss">
 .order-contents {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 1em 1em;
 }
 

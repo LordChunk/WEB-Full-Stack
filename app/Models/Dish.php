@@ -32,4 +32,9 @@ class Dish extends Model
         return $this->belongsToMany(Order::class)
             ->withPivot(['quantity', 'price']);
     }
+
+    public function discounts()
+    {
+        return $this->hasMany(Discount::class);
+    }
 }

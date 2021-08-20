@@ -1,19 +1,40 @@
 <template>
-  <div class="content-background">
-    <h3>
-      Nummer 15 Witte rijst, Nu in de aanbieding!
-      Van: €3,00         Naar: €1,99
-    </h3>
-    <h6>
-      Kan nu wel een beetje rood zijn.
-    </h6>
+  <div v-for="discount in discounts"
+       :key="discount.id">
+    <add
+      :discount="discount"
+    />
   </div>
 </template>
 
 <script>
+import advertisement from "@/Components/Add.vue";
 import Layout from "@/Shared/CustomerLayout.vue";
+
 export default {
   layout: Layout,
+  props: {
+    discount: Object,
+    discounts: {
+      type: Array[
+        {
+          type: {
+            id: Number,
+            dish_id: Number,
+            isStudentDiscount: Boolean,
+            discountPercentage: Number,
+            startDate: Date,
+            endDate: Date,
+            dish: Object,
+          },
+        }
+        ],
+      required: true,
+    },
+  },
+  component: {
+    advertisement,
+  },
 }
 </script>
 

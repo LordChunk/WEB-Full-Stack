@@ -57,6 +57,7 @@ class Order extends Model
                 [
                     'quantity' => $dish['quantity'],
                     'price' => $dish['price'],
+                    'comment' => $dish['comment'] ?? null,
                 ]
             );
         }
