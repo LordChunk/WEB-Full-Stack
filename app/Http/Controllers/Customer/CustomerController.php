@@ -33,13 +33,17 @@ class CustomerController extends Controller
             ->where('endDate','>',date("Y-m-d"))
             ->with('dish')
             ->get();
-        //dd($discounts);
         return Inertia::render('Customer/Discount',['discounts' => $discounts]);
     }
 
     public function studentDiscount()
     {
-        return Inertia::render('Customer/StudentDiscount');
+        $discounts = Discount::where('isStudentDiscount', true)
+            ->where('startDate','<=',date("Y-m-d"))
+            ->where('endDate','>',date("Y-m-d"))
+            ->with('dish')
+            ->get();
+        return Inertia::render('Customer/Discount',['discounts' => $discounts]);
     }
 
     /**
