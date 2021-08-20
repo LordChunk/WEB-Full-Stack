@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Advertisement from "@/Components/Add.vue";
+import Advertisement from "@/Components/Advertisement.vue";
 import Layout from "@/Shared/CustomerLayout.vue";
 
 export default {
