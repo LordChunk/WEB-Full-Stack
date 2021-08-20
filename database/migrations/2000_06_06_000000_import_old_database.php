@@ -24,6 +24,7 @@ class ImportOldDatabase extends Migration
         Schema::dropIfExists('specialiteiten');
         Schema::dropIfExists('rijst_enzo');
         Schema::dropIfExists('menu_pdf');
+        Schema::dropIfExists('sales');
 
         // Drop tables with unused data
         Schema::dropIfExists('gebruiker');
