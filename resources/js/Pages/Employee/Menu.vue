@@ -21,6 +21,7 @@
         :key="dishType.name"
         :dishType="dishType"
         :searchTerm="searchTerm"
+        :allAllergies="allAllergies"
       >
       </dish-type>
     </div>
@@ -79,6 +80,10 @@ export default {
           },
         }
       ],
+      required: true,
+    },
+    allAllergies: {
+      type: Array,
       required: true,
     },
   },
