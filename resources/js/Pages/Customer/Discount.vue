@@ -1,18 +1,18 @@
 <template>
-  <div v-for="discount in discounts"
-       :key="discount.id">
-    <add
-      :discount="discount"
-    />
+  <div v-for="discount in discounts" :key="discount.id">
+    <advertisement :discount="discount" />
   </div>
 </template>
 
 <script>
-import advertisement from "@/Components/Add.vue";
+import Advertisement from "@/Components/Add.vue";
 import Layout from "@/Shared/CustomerLayout.vue";
 
 export default {
   layout: Layout,
+  components: {
+    Advertisement,
+  },
   props: {
     discount: Object,
     discounts: {
@@ -28,16 +28,12 @@ export default {
             dish: Object,
           },
         }
-        ],
+      ],
       required: true,
     },
   },
-  component: {
-    advertisement,
-  },
-}
+};
 </script>
 
 <style>
-
 </style>
