@@ -22,16 +22,16 @@ class DiscountSeeder extends Seeder
             'dish_id' => 1,
             'isStudentDiscount' => true,
             'discountPercentage' => '25',
-            'startDate' => '2021-08-19',
-            'endDate' => '2021-08-23',
+            'startDate' => '2021-01-01',
+            'endDate' => '2021-12-31',
         ]);
 
         Discount::create([
             'dish_id' => 2,
             'isStudentDiscount' => false,
             'discountPercentage' => '25',
-            'startDate' => '2021-08-19',
-            'endDate' => '2021-08-23',
+            'startDate' => '2021-01-01',
+            'endDate' => '2021-12-31',
         ]);
     }
 }

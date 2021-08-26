@@ -14,7 +14,6 @@ export default {
     Advertisement,
   },
   props: {
-    discount: Object,
     discounts: {
       type: Array[
         {
